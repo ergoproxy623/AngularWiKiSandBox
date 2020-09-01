@@ -1,0 +1,20 @@
+<div class="w-100">
+  <h3 class="text-uppercase">
+    Angular WiKi
+  </h3>
+</div>
+
+<nav>
+  <h3>
+    <a class="m-1" routerLinkActive="active" [routerLink]="['/']"
+        [routerLinkActiveOptions]="{exact: true}" href="">Angular Routs</a>
+    <a class="m-1" routerLinkActive="active"  [routerLink]="['/form']">Forms</a>
+    <a routerLinkActive="active" [routerLink]="['/methode']"
+       class="m-1">Methods</a>
+  </h3>
+</nav>
+<div class="row col-12">
+  <a [routerLink]="['/']" routerLinkActive="active" class=""></a>
+
+</div>
+<router-outlet></router-outlet>

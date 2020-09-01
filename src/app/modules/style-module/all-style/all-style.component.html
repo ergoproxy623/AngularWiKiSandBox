@@ -1,0 +1,7 @@
+<button (click)="chooseGreen = !chooseGreen; chooseBlue = !chooseBlue"></button>
+<p class="w-100 basic-class"
+    [ngClass]="{blue: chooseBlue, green: chooseGreen}"
+>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, placeat?</p>
+<p  [class.blue]="chooseBlue"
+    [class.creen]="chooseGreen"
+>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto?</p>
