@@ -1,4 +1,17 @@
 <p>bunding-params works!</p>
+<button class="btn waves-effect waves-light"
+        name="action"
+        (click)="addCards()">Add
+    <i class="material-icons right">send</i>
+</button>
+
+
 <div>
-  <app-card-item *ngFor="let card of cards" [card]="card"></app-card-item>
+  <app-card-item *ngFor="let card of cards" [card]="card">
+      <div #genTemplate>
+          <smal *ngIf="card.cardBody.length > 10; else short">Long</smal>
+          <ng-template #short>Short</ng-template>
+      </div>
+
+  </app-card-item>
 </div>
