@@ -8,11 +8,14 @@ import { StyleDirective } from './directives/style.directive';
 import { DirectiveTestComponent } from './directives/directive-test/directive-test.component';
 import {StructureRoutingModule} from './structure-routing.module';
 import {SharedModule} from '../../shared/shared.module';
+import { StructureDirective } from './directives/structure.directive';
+import { MultiPipe } from './pipes/multi.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
 @NgModule({
-  declarations: [SwitchComponent, NgForComponent, PipesComponent, BundingParamsComponent, StyleDirective, DirectiveTestComponent],
+  declarations: [SwitchComponent, NgForComponent, PipesComponent, BundingParamsComponent, StyleDirective, DirectiveTestComponent, StructureDirective, MultiPipe, FilterPipe],
   imports: [
       CommonModule,
       StructureRoutingModule,

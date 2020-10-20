@@ -1,6 +1,52 @@
-<p>pipes works!</p>
+<h3>Angular Pipes</h3>
 <div>
+    <h4>Numbers</h4>
   <div *ngFor="let test of tests">
     {{test | number: "0.2-2"}}
   </div>
+</div>
+
+<div>
+    <h4>Filter</h4>
+    <div *ngFor="let test of tests | filter: '0.12'">
+        {{test | number: "0.2-2"}}
+    </div>
+</div>
+<div>
+    <h4>Strings</h4>
+    <p>{{"hello world"}}</p>
+    <p>{{"hello world" | uppercase}}</p>
+    <p>{{"hello world" | lowercase}}</p>
+    <p>{{"hello world" | titlecase}}</p>
+    <p>{{"hello world" | slice: 5:11}}</p>
+</div>
+
+<div>
+    <h4>Date</h4>
+    <span>{{date| date: 'yyyy'}}</span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div>
+    <h4>Currency</h4>
+    <p>{{0.12 | currency}}</p>
+</div>
+
+<div>
+    <h4>JSON</h4>
+    <pre>{{obj | json}}</pre>
+</div>
+
+<div>
+    <h4>Custom Pipes</h4>
+    <p>{{ 'value' | multi: 3 }}</p>
+
+</div>
+
+<div>
+    <h4>Async</h4>
+    <p>Promis Wait for resolw... {{ p| async }}</p>
+    <p>Observable Wait for resolw... {{ o| async }}</p>
 </div>
