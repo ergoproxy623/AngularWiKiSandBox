@@ -1,16 +1,13 @@
 <div class="w-100">
   <h3 class="text-uppercase">
-    Angular WiKi
+    Angular
   </h3>
 </div>
 
 <nav>
   <h3>
-    <a class="m-1" routerLinkActive="active" [routerLink]="['/']"
-        [routerLinkActiveOptions]="{exact: true}" href="">Angular Routs</a>
-    <a class="m-1" routerLinkActive="active"  [routerLink]="['/form']">Forms</a>
-    <a routerLinkActive="active" [routerLink]="['/methode']"
-       class="m-1">Methods</a>
+    <a *ngFor="let link of linkArr" class="m-1" routerLinkActive="active" [routerLink]="link.link"
+        [routerLinkActiveOptions]="{exact: true}" href="">{{link.title}}</a>
   </h3>
 </nav>
 <div class="row col-12">

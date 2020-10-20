@@ -11,10 +11,10 @@ export class BundingParamsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.cards = [{ title: "Test Title",
-                   cardBody: "Lorem 100",
-                   linkOne: "url",
-                   linkTwo: "url"}];
+    this.cards = [{ title: 'Test Title',
+                   cardBody: 'Lorem 100',
+                   linkOne: 'url',
+                   linkTwo: 'url'}];
   }
 
 }
