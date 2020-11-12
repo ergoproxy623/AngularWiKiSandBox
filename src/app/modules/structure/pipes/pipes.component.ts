@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {observable, Observable} from "rxjs";
-import {TestRequestService} from "../../../services/test-request.service";
+import {observable, Observable} from 'rxjs';
+import {TestRequestService} from '../../../services/test-request.service';
 
 @Component({
   selector: 'app-pipes',
@@ -14,6 +14,7 @@ export class PipesComponent implements OnInit {
       name: 'JSON',
       line: 2
   };
+  users: any[] = [];
   p: Promise<string> = new Promise<string>( resolve => {
       setTimeout( () => {
           resolve('Promise done');
@@ -33,7 +34,7 @@ export class PipesComponent implements OnInit {
 
   ngOnInit(): void {
       this.usersService.getUsers().subscribe( res => {
-          console.log(res);
+          this.users = res.data;
       });
   }
 

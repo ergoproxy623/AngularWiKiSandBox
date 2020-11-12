@@ -8,8 +8,8 @@ import {
     OnInit,
     SimpleChanges
 } from '@angular/core';
-import {ICard} from "../../../interfaces/card-interface/card";
-import {Card} from "../../../classDTO/cardDTO/cardDTO";
+import {ICard} from '../../../interfaces/card-interface/card';
+import {Card} from '../../../classDTO/cardDTO/cardDTO';
 
 @Component({
   selector: 'app-hooks',
@@ -18,7 +18,7 @@ import {Card} from "../../../classDTO/cardDTO/cardDTO";
 })
 export class HooksComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked, OnChanges {
     cards: ICard[] = null;
-    @ContentChild("genTemplate", {static: true}) genTemplate: ElementRef;
+    @ContentChild('genTemplate', {static: true}) genTemplate: ElementRef;
   constructor() { }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -26,11 +26,10 @@ export class HooksComponent implements OnInit, AfterViewInit, OnDestroy, AfterVi
     }
 
     ngOnInit(): void {
-        console.log(this.genTemplate.nativeElement);
-        this.cards = [{ title: "Test Title",
-            cardBody: "Lorem 100",
-            linkOne: "url",
-            linkTwo: "url"}];
+        this.cards = [{ title: 'Test Title',
+            cardBody: 'Lorem 100',
+            linkOne: 'url',
+            linkTwo: 'url'}];
     }
 
     addCards(): any {

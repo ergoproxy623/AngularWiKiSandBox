@@ -11,6 +11,9 @@
     <div *ngFor="let test of tests | filter: '0.12'">
         {{test | number: "0.2-2"}}
     </div>
+    <div *ngFor="let test of tests ">
+        {{test | number: "0.2-2"}}
+    </div>
 </div>
 <div>
     <h4>Strings</h4>
@@ -42,6 +45,7 @@
 <div>
     <h4>Custom Pipes</h4>
     <p>{{ 'value' | multi: 3 }}</p>
+    <p>{{ 'value'  }}</p>
 
 </div>
 

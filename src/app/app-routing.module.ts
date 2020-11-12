@@ -26,6 +26,12 @@ const routes: Routes = [
         loadChildren: () =>
             import('./modules/style-module/style-module.module').then(
                 (m) => m.StyleModuleModule)
+    },
+    {
+        path: 'sheduler',
+        loadChildren: () =>
+            import('./modules/scheduler/sheduler-main.module').then(
+                (m) => m.ShedulerMainModule)
     }
 ];
 

@@ -13,11 +13,13 @@ export class StyleDirective {
                 private renderer: Renderer2) {
     }
 
+    // tslint:disable-next-line:typedef
     @HostListener('mouseenter') onEnter() {
         console.log(this.el.nativeElement);
         this.eColor = this.color;
     }
 
+    // tslint:disable-next-line:typedef
     @HostListener('click', ['$event.target']) onClick() {
         if (this.el) {
             this.renderer.setStyle(this.el.nativeElement, 'color', this.color);

@@ -15,7 +15,16 @@ import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
-  declarations: [SwitchComponent, NgForComponent, PipesComponent, BundingParamsComponent, StyleDirective, DirectiveTestComponent, StructureDirective, MultiPipe, FilterPipe],
+  declarations: [
+      SwitchComponent,
+      NgForComponent,
+      PipesComponent,
+      BundingParamsComponent,
+      StyleDirective,
+      DirectiveTestComponent,
+      StructureDirective,
+      MultiPipe,
+  ],
   imports: [
       CommonModule,
       StructureRoutingModule,

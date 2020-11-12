@@ -13,5 +13,6 @@ export class AppComponent {
                     {link: '/structure', title: 'Structure'},
                     {link: '/tests', title: 'Tests'},
                     {link: '/style', title: 'Style'},
+                    {link: '/sheduler', title: 'Sheduler'},
                     ];
 }
