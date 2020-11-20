@@ -95,13 +95,13 @@
       }
     },
     "typedef": [
-      true,
+      false,
       "call-signature"
     ],
     "typedef-whitespace": {
       "options": [
         {
-          "call-signature": "nospace",
+          "call-signature": "space",
           "index-signature": "nospace",
           "parameter": "nospace",
           "property-declaration": "nospace",

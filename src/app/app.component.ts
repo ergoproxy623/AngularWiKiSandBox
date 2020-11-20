@@ -7,12 +7,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project-for-tests';
-  linkArr: any[] = [{link: '/', title: 'All'},
-                    {link: '/form', title: 'Form'},
-                    {link: '/methode', title: 'Method'},
-                    {link: '/structure', title: 'Structure'},
-                    {link: '/tests', title: 'Tests'},
-                    {link: '/style', title: 'Style'},
-                    {link: '/sheduler', title: 'Sheduler'},
+  linkArr: any[] = [{link: '/', title: 'Login', linkArr: []},
+                    { title: 'Form',
+                        linkArr: [
+                            {link: '/forms', title: 'Reactive Forms'},
+                        ]
+                    },
+                    {link: '/methode', title: 'Method', linkArr: []},
+                    { title: 'Structure',
+                      linkArr: [
+                         {link: '/structure', title: 'Structure'},
+                         {link: '/structure/directives', title: 'Directives'},
+                         {link: '/structure/pipes', title: 'Pipes'},
+                         {link: '/structure/bunding', title: 'Bunding'},
+                      ]
+                    },
+                    {link: '/tests', title: 'Tests', linkArr: []},
+                    {link: '/style', title: 'Style', linkArr: []},
+                    {link: '/sheduler', title: 'Sheduler', linkArr: []},
                     ];
 }

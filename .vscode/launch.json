@@ -1,15 +1,19 @@
 {
-    // Используйте IntelliSense, чтобы узнать о возможных атрибутах.
-    // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
-    // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-chrome",
+            "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}"
+            "name": "Launch Chromium against localhost",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "/snap/bin/chromium",
+            "runtimeArgs": [
+              "--new-window",
+              "-user-data-dir=\"/${workspaceFolder}/DevProfile\"",
+              "--remote-debugging-port=9222",
+              "--disable-background-networking"
+            ]
         }
     ]
 }

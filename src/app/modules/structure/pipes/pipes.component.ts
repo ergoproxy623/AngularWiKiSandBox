@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {observable, Observable} from 'rxjs';
+import { Observable, of} from 'rxjs';
 import {TestRequestService} from '../../../services/test-request.service';
+import {FireServiceService} from "../../../services/fire-service/fire-service.service";
 
 @Component({
   selector: 'app-pipes',
@@ -20,6 +21,7 @@ export class PipesComponent implements OnInit {
           resolve('Promise done');
       }, 3000);
   });
+
   o: Observable<string> = new Observable<string>( observer => {
       setTimeout( () => {
           observer.next('Observable next for 5 sec.');
@@ -30,12 +32,20 @@ export class PipesComponent implements OnInit {
       }, 7000);
   });
 
-  constructor(private usersService: TestRequestService) { }
+  constructor(
+      private usersService: TestRequestService,
+      private fireService: FireServiceService,
+      ) { }
 
   ngOnInit(): void {
       this.usersService.getUsers().subscribe( res => {
           this.users = res.data;
       });
+
+      this.fireService.items.subscribe( res => {
+          console.log(res);
+      });
+
   }
 
 }

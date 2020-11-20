@@ -11,7 +11,7 @@ import {FilterPipe} from '../modules/structure/pipes/filter.pipe';
       FilterPipe,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
     exports: [
         CardItemComponent,
