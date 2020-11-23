@@ -39,6 +39,7 @@
     "devextreme-angular": "^20.2.3",
     "firebase": "^8.0.1",
     "flatpickr": "^4.6.6",
+    "linq": "^3.2.3",
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.29.1",
     "rxjs": "~6.5.5",

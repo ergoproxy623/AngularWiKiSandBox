@@ -3,6 +3,7 @@
 .wrap {
     background-color: $body-bg;
     height: calc(100% - 58px);
+    overflow: auto;
 }
 input {
     &.ng-invalid {

@@ -24,7 +24,7 @@
             </div>
 
             <div class="input-group mb-3" [formArrayName]="'auto'"
-                 *ngFor="let auto of createUserForm.get('auto').controls; let i = index;">
+                 *ngFor="let auto of createUserForm.get('auto')['controls']; let i = index;">
                 <div [formGroupName]="i">
                     <input type="text" class="form-control"
                            aria-label="Amount (to the nearest dollar)"
