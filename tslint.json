@@ -28,7 +28,7 @@
       "app",
       "kebab-case"
     ],
-    "eofline": true,
+    "eofline": false,
     "import-blacklist": [
       true,
       "rxjs/Rx"
@@ -101,7 +101,7 @@
     "typedef-whitespace": {
       "options": [
         {
-          "call-signature": "space",
+          "call-signature": "nospace",
           "index-signature": "nospace",
           "parameter": "nospace",
           "property-declaration": "nospace",

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
-import {AngularFireDatabase, AngularFireList} from "@angular/fire/database";
+import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
+import {UserDto} from '../../classDTO/userDto/userDto';
 
 @Injectable({
   providedIn: 'root'
@@ -9,21 +9,14 @@ import {AngularFireDatabase, AngularFireList} from "@angular/fire/database";
 export class FireServiceService {
 
     itemsCollection: AngularFireList<any>;
-    items: Observable<any[]>;
+    items: Observable<UserDto[]>;
 
     constructor(public db: AngularFireDatabase) {
         this.itemsCollection  = this.db.list('users') as AngularFireList<any>;
-        console.log(this.itemsCollection);
-        this.items = this.itemsCollection.valueChanges() as Observable<User[]>;
+        this.items = this.itemsCollection.valueChanges() as Observable<UserDto[]>;
     }
 
-    add() {
-        this.itemsCollection.push({name: 'Tom', age: '1'});
+    addUser(user: UserDto) {
+        this.itemsCollection.push(user);
     }
-}
-
-export class User {
-    $key?: any;
-    name?: string;
-    age?: number;
 }
