@@ -18,6 +18,13 @@ const routes: Routes = [
                 (m) => m.StructureModule)
     },
     {
+        path: 'linq',
+        loadChildren: () =>
+            import('./modules/linque/linque.module').then(
+                (m) => m.LinqueModule
+            ),
+    },
+    {
         path: 'tests',
         loadChildren: () =>
             import('./modules/tests-module/tests/tests.module').then(
