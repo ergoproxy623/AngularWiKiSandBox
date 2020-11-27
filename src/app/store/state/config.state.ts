@@ -1,9 +1,9 @@
 import {IConfig} from '../../classDTO/config/config,interface';
 
 export interface IConfigState {
-    config: IConfig;
+   config: IConfig;
 }
 
-export const InitialConfigSate: IConfigState = {
+export const initializeConfigState: IConfigState = {
     config: null,
 };

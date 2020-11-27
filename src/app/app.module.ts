@@ -16,6 +16,13 @@ import {environment} from '../environments/environment';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
+import {StoreModule} from "@ngrx/store";
+import {appReducers} from "./store/reducers/deducers-map";
+import {EffectsModule} from "@ngrx/effects";
+import {UserEffects} from "./store/effects/user.effects";
+import {StoreRouterConnectingModule} from "@ngrx/router-store";
+import {ConfigEffects} from "./store/effects/config.effects";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 
 
 // tslint:disable-next-line:typedef
@@ -41,6 +48,13 @@ const INTERCEPTOR_PROVIDER: Provider = {
         ReactiveFormsModule,
         BrowserAnimationsModule,
         SharedModule,
+        StoreModule.forRoot(appReducers),
+        StoreRouterConnectingModule.forRoot({ stateKey: 'router'}),
+        EffectsModule.forRoot([UserEffects, ConfigEffects]),
+        StoreDevtoolsModule.instrument({
+            maxAge: 20,
+            logOnly: !environment.production,
+        }),
         HttpClientModule,
         FlatpickrModule.forRoot(),
         AngularFireModule.initializeApp(environment.firebase),

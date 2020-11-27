@@ -55,4 +55,18 @@
         <p>Promis Wait for resolw... {{ p| async }}</p>
         <p>Observable Wait for resolw... {{ o| async }}</p>
     </div>
+
+    <div>
+        <h4>Store</h4>
+        <div *ngFor="let user of users$ | async">{{
+                user | json
+            }}</div>
+    </div>
+
+    <div>
+        <h4>Store Config</h4>
+        <div>
+            {{ config$ | async | json }}
+        </div>
+    </div>
 </div>

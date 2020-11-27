@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import {IUserDto} from "../../classDTO/userDto/userDto";
+import {IUserDto} from '../../classDTO/userDto/userDto';
 
 
 export enum EUserAction {

@@ -1,10 +1,11 @@
 import {Action} from '@ngrx/store';
-import {IConfigState} from '../state/config.state';
-import {IConfig} from "../../classDTO/config/config,interface";
+import {IConfig} from '../../classDTO/config/config,interface';
 
 export enum EConfigState {
     GetConfig = '[Config] Get Config',
     GetConfigSuccess = '[Config] Get Config Success',
+    SetConfig = '[Config] Set Config',
+    SetConfigSuccess = '[Config] Set Config Success',
 }
 
 export class GetConfig implements Action {
@@ -17,4 +18,16 @@ export class GetConfigSuccess implements Action {
     }
 }
 
-export type ConfigAction = GetConfig | GetConfigSuccess;
+export class SetConfig implements Action {
+    public readonly type = EConfigState.SetConfig;
+    constructor(public payload: IConfig) {
+    }
+}
+
+export class SetConfigSuccess implements Action {
+    public readonly type = EConfigState.SetConfigSuccess;
+    constructor(public payload: IConfig) {
+    }
+}
+
+export type ConfigAction = GetConfig | GetConfigSuccess | SetConfig | SetConfigSuccess;
