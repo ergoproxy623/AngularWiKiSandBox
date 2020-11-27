@@ -20,9 +20,10 @@ import {StoreModule} from "@ngrx/store";
 import {appReducers} from "./store/reducers/deducers-map";
 import {EffectsModule} from "@ngrx/effects";
 import {UserEffects} from "./store/effects/user.effects";
-import {StoreRouterConnectingModule} from "@ngrx/router-store";
+import {RouterStateSerializer, StoreRouterConnectingModule} from "@ngrx/router-store";
 import {ConfigEffects} from "./store/effects/config.effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {MergedRouterStateSerializer} from "./store/reducers/router/merged-route-serialzer";
 
 
 // tslint:disable-next-line:typedef
@@ -36,6 +37,9 @@ const INTERCEPTOR_PROVIDER: Provider = {
     multi: true,
 };
 
+export const routerStateConfig = {
+    stateKey: 'router', // state-slice name for routing state
+};
 @NgModule({
     declarations: [
         AppComponent,
@@ -49,7 +53,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
         BrowserAnimationsModule,
         SharedModule,
         StoreModule.forRoot(appReducers),
-        StoreRouterConnectingModule.forRoot({ stateKey: 'router'}),
+        StoreRouterConnectingModule.forRoot(routerStateConfig),
         EffectsModule.forRoot([UserEffects, ConfigEffects]),
         StoreDevtoolsModule.instrument({
             maxAge: 20,
@@ -61,7 +65,10 @@ const INTERCEPTOR_PROVIDER: Provider = {
         AngularFireDatabaseModule,
         NgbModule,
     ],
-    providers: [INTERCEPTOR_PROVIDER],
+    providers: [INTERCEPTOR_PROVIDER,  {
+        provide: RouterStateSerializer,
+        useClass: MergedRouterStateSerializer,
+    }],
     bootstrap: [AppComponent]
 })
 export class AppModule {

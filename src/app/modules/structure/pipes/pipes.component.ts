@@ -13,6 +13,12 @@ import {IUserDto} from '../../../classDTO/userDto/userDto';
 import {IConfig} from "../../../classDTO/config/config,interface";
 import {selectConfig, selectedConfig} from "../../../store/selectors/config.selectors";
 import {GetConfig, SetConfig} from "../../../store/actions/config.action";
+import {
+    getMergedRoute,
+    selectedRoute,
+    selectFragmentUrl,
+    selectSelectedId
+} from "../../../store/selectors/router-state.selectors";
 @Component({
     selector: 'app-pipes',
     templateUrl: './pipes.component.html',
@@ -45,6 +51,7 @@ export class PipesComponent implements OnInit {
 
     users$: Observable<IUserDto[]> = this.store.pipe(select(selectedUserList));
     config$: Observable<IConfig> = this.store.pipe(select(selectedConfig));
+    store$: Observable<any> = this.store.pipe(select(selectSelectedId));
 
     constructor(
         private usersService: TestRequestService,
@@ -59,6 +66,9 @@ export class PipesComponent implements OnInit {
         setTimeout( () => {
             this.store.dispatch(new SetConfig({adminName: 'Arthur', premissions: ['edit']}));
         }, 5000);
+        this.store$.subscribe( s => {
+            console.log(s);
+        } )
         console.log(momentTZ.tz.guess());
         console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
         this.usersService.getUsers().subscribe( res => {
