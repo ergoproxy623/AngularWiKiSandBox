@@ -4,6 +4,6 @@ export interface IConfigState {
     config: IConfig;
 }
 
-export const initialConfigSate = {
+export const InitialConfigSate: IConfigState = {
     config: null,
 };
