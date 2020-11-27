@@ -3,8 +3,8 @@
         <form [formGroup]="createUserForm" (ngSubmit)="createUser()"  >
             <div class="input-group mb-3 pt-1">
                 <input type="text" class="form-control w-100"
-                       placeholder="Username" aria-label="Username"
-                       aria-describedby="basic-addon1" [formControlName]="'name'">
+                        placeholder="Username" aria-label="Username"
+                        aria-describedby="basic-addon1" [formControlName]="'name'">
                 <div class="validation">
                     <small *ngIf="createUserForm.get('name').errors">
                         field is required
@@ -14,17 +14,17 @@
 
             <div class="input-group mb-3" [formGroupName]="'address'">
                 <input type="text" class="form-control w-100"
-                       aria-label="Amount (to the nearest dollar)"
-                       placeholder="Address street"
-                       [formControlName]="'street'">
+                        aria-label="Amount (to the nearest dollar)"
+                        placeholder="Address street"
+                        [formControlName]="'street'">
                 <input type="text" class="form-control w-100"
-                       [placeholder]="'Address Country'"
-                       aria-label="Amount (to the nearest dollar)"
-                       [formControlName]="'country'">
+                        [placeholder]="'Address Country'"
+                        aria-label="Amount (to the nearest dollar)"
+                        [formControlName]="'country'">
             </div>
 
             <div class="input-group mb-3" [formArrayName]="'auto'"
-                 *ngFor="let auto of createUserForm.get('auto').controls; let i = index;">
+                 *ngFor="let auto of createUserForm.get('auto')['controls']; let i = index;">
                 <div [formGroupName]="i">
                     <input type="text" class="form-control"
                            aria-label="Amount (to the nearest dollar)"

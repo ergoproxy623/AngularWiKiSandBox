@@ -5,7 +5,7 @@ export interface IUserState {
     selectedUser: IUserDto;
 }
 
-export const initialUsersState: IUserState = {
+export const InitialUsersState: IUserState = {
     users: null,
     selectedUser: null,
 };
