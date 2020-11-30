@@ -5,20 +5,19 @@ import {FireServiceService} from '../../../services/fire-service/fire-service.se
 import * as momentTZ from 'moment-timezone';
 import {IAppState} from '../../../store/state/app.state';
 import {Store} from '@ngrx/store';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {select} from '@ngrx/store';
 import {selectedUserList} from '../../../store/selectors/user.selectors';
 import {GetUsers} from '../../../store/actions/user.action';
 import {IUserDto} from '../../../classDTO/userDto/userDto';
-import {IConfig} from "../../../classDTO/config/config,interface";
-import {selectConfig, selectedConfig} from "../../../store/selectors/config.selectors";
-import {GetConfig, SetConfig} from "../../../store/actions/config.action";
+import {IConfig} from '../../../classDTO/config/config,interface';
+import { selectedConfig} from '../../../store/selectors/config.selectors';
+import {GetConfig, SetConfig} from '../../../store/actions/config.action';
 import {
-    getMergedRoute,
-    selectedRoute,
-    selectFragmentUrl,
     selectSelectedId
-} from "../../../store/selectors/router-state.selectors";
+} from '../../../store/selectors/router-state.selectors';
+import {RoutingStateService} from "../../../services/routing-state.service";
+import {act} from "@ngrx/effects";
 @Component({
     selector: 'app-pipes',
     templateUrl: './pipes.component.html',
@@ -57,7 +56,8 @@ export class PipesComponent implements OnInit {
         private usersService: TestRequestService,
         private fireService: FireServiceService,
         private store: Store<IAppState>,
-        private router: Router
+        private router: Router,
+        private activeRoute: ActivatedRoute,
         ) { }
 
     ngOnInit(): void {
@@ -68,12 +68,20 @@ export class PipesComponent implements OnInit {
         }, 5000);
         this.store$.subscribe( s => {
             console.log(s);
-        } )
+        } );
+
+        console.log(this.activeRoute.children);
+        console.log(this.activeRoute.parent);
+
         console.log(momentTZ.tz.guess());
         console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
         this.usersService.getUsers().subscribe( res => {
             this.users = res.data;
         });
+        this.activeRoute.data.subscribe( data => {
+             console.log(data.users);
+        });
+        console.log(this.activeRoute.snapshot.data.users);
 
         this.fireService.items.subscribe( res => {
             console.log(res);

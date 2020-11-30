@@ -24,6 +24,7 @@ import {RouterStateSerializer, StoreRouterConnectingModule} from "@ngrx/router-s
 import {ConfigEffects} from "./store/effects/config.effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {MergedRouterStateSerializer} from "./store/reducers/router/merged-route-serialzer";
+import {MonacoEditorModule} from "ngx-monaco-editor";
 
 
 // tslint:disable-next-line:typedef
@@ -61,6 +62,7 @@ export const routerStateConfig = {
         }),
         HttpClientModule,
         FlatpickrModule.forRoot(),
+        MonacoEditorModule.forRoot(),
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireDatabaseModule,
         NgbModule,

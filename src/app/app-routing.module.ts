@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {Routes, RouterModule, PreloadingStrategy} from '@angular/router';
 import {TestServiceComponent} from './modules/tests-module/tests/test-service/test-service.component';
 import {TestMethodsComponent} from './modules/tests-module/tests/test-methods/test-methods.component';
+import {AuthGuard} from './services/auth.guard';
 
 const routes: Routes = [
     {path: '', component: TestServiceComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
         path: 'structure',
         loadChildren: () =>
             import('./modules/structure/structure.module').then(
-                (m) => m.StructureModule)
+                (m) => m.StructureModule),
+       canActivateChild: [AuthGuard],  canActivate: [AuthGuard],
     },
     {
         path: 'linq',
@@ -41,6 +43,10 @@ const routes: Routes = [
         loadChildren: () =>
             import('./modules/scheduler/sheduler-main.module').then(
                 (m) => m.ShedulerMainModule)
+    },
+    {
+        path: 'sandbox',
+        loadChildren: () => import('./modules/sandbox-js/sandbox-js.module').then( (m) => m.SandboxJsModule)
     }
 ];
 

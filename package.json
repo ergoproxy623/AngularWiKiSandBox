@@ -48,6 +48,7 @@
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.32",
+    "ngx-monaco-editor": "^6.0.0",
     "rxjs": "~6.5.5",
     "rxjs-compat": "^6.6.3",
     "tslib": "^2.0.0",

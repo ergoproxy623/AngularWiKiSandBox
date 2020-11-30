@@ -25,6 +25,12 @@ export class AppComponent {
             ]
         },
         {
+            title: 'Sandbox',
+            linkArr: [
+                {link: '/sandbox', title: 'Sandbox'},
+            ]
+        },
+        {
             title: 'Linq',
             linkArr: [
                 {link: '/linq', title: 'Linq'},

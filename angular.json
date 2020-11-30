@@ -25,7 +25,11 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+                { "glob": "**/*",
+                    "input": "./node_modules/ngx-monaco-editor/assets/monaco",
+                    "output": "./assets/monaco/"
+                }
             ],
             "styles": [
               "node_modules/angular-calendar/css/angular-calendar.css",
@@ -34,7 +38,7 @@
                 "input": "./node_modules/bootstrap/dist/css/bootstrap.css"
               }
             ],
-            "scripts": []
+            "scripts": ["./assets/scripts/index.js",   "src/custom.js"]
           },
           "configurations": {
             "production": {
