@@ -10,14 +10,15 @@ const routes: Routes = [
     {
         path: 'forms',
         loadChildren: () => import('./modules/form-module/forms.module').then(
-            (m) => m.FormsModule )
+            (m) => m.FormsModule ),
+        canActivate: [AuthGuard],
     },
     {
         path: 'structure',
         loadChildren: () =>
             import('./modules/structure/structure.module').then(
                 (m) => m.StructureModule),
-       canActivateChild: [AuthGuard],  canActivate: [AuthGuard],
+       canActivateChild: [AuthGuard]
     },
     {
         path: 'linq',

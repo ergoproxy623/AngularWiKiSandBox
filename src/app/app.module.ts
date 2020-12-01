@@ -4,11 +4,11 @@ import {NgModule, Provider} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {TestsModule} from './modules/tests-module/tests/tests.module';
-import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { adapterFactory } from 'angular-calendar/date-adapters/moment';
+import {adapterFactory} from 'angular-calendar/date-adapters/moment';
 import * as moment from 'moment';
 import {FlatpickrModule} from 'angularx-flatpickr';
 import {AngularFireModule} from '@angular/fire';
@@ -25,11 +25,13 @@ import {ConfigEffects} from "./store/effects/config.effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {MergedRouterStateSerializer} from "./store/reducers/router/merged-route-serialzer";
 import {MonacoEditorModule} from "ngx-monaco-editor";
+import {ResolveDirective} from './directive/resolve.directive';
+import {ModalComponent} from "./shared/base-elements/modal/modal.component";
 
 
 // tslint:disable-next-line:typedef
 export function momentAdapterFactory() {
-  return adapterFactory(moment);
+    return adapterFactory(moment);
 }
 
 const INTERCEPTOR_PROVIDER: Provider = {
@@ -41,6 +43,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
 export const routerStateConfig = {
     stateKey: 'router', // state-slice name for routing state
 };
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -67,11 +70,12 @@ export const routerStateConfig = {
         AngularFireDatabaseModule,
         NgbModule,
     ],
-    providers: [INTERCEPTOR_PROVIDER,  {
+    providers: [INTERCEPTOR_PROVIDER, {
         provide: RouterStateSerializer,
         useClass: MergedRouterStateSerializer,
     }],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [ModalComponent]
 })
 export class AppModule {
 }

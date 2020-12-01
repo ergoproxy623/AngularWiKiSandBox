@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit, ViewChild} from '@angular/core';
 import { Observable, of} from 'rxjs';
 import {TestRequestService} from '../../../services/test-request.service';
 import {FireServiceService} from '../../../services/fire-service/fire-service.service';
@@ -18,6 +18,8 @@ import {
 } from '../../../store/selectors/router-state.selectors';
 import {RoutingStateService} from "../../../services/routing-state.service";
 import {act} from "@ngrx/effects";
+import {ModalComponent} from "../../../shared/base-elements/modal/modal.component";
+import {ResolveDirective} from "../../../directive/resolve.directive";
 @Component({
     selector: 'app-pipes',
     templateUrl: './pipes.component.html',
@@ -51,6 +53,7 @@ export class PipesComponent implements OnInit {
     users$: Observable<IUserDto[]> = this.store.pipe(select(selectedUserList));
     config$: Observable<IConfig> = this.store.pipe(select(selectedConfig));
     store$: Observable<any> = this.store.pipe(select(selectSelectedId));
+    @ViewChild(ResolveDirective) resolveDir: ResolveDirective;
 
     constructor(
         private usersService: TestRequestService,
@@ -58,6 +61,7 @@ export class PipesComponent implements OnInit {
         private store: Store<IAppState>,
         private router: Router,
         private activeRoute: ActivatedRoute,
+        private resolver: ComponentFactoryResolver,
         ) { }
 
     ngOnInit(): void {
@@ -89,4 +93,12 @@ export class PipesComponent implements OnInit {
 
     }
 
+    showModal() {
+       const modal = this.resolver.resolveComponentFactory(ModalComponent);
+       const component = this.resolveDir.containerRef.createComponent(modal);
+       component.instance.title = 'New title';
+       component.instance.close.subscribe( () => {
+           this.resolveDir.containerRef.clear();
+       })
+    }
 }

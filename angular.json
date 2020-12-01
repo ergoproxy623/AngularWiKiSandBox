@@ -38,7 +38,7 @@
                 "input": "./node_modules/bootstrap/dist/css/bootstrap.css"
               }
             ],
-            "scripts": ["./assets/scripts/index.js",   "src/custom.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {

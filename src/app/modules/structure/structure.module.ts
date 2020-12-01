@@ -10,7 +10,7 @@ import {StructureRoutingModule} from './structure-routing.module';
 import {SharedModule} from '../../shared/shared.module';
 import { StructureDirective } from './directives/structure.directive';
 import { MultiPipe } from './pipes/multi.pipe';
-import { FilterPipe } from './pipes/filter.pipe';
+
 
 
 
@@ -25,10 +25,10 @@ import { FilterPipe } from './pipes/filter.pipe';
       StructureDirective,
       MultiPipe,
   ],
-  imports: [
-      CommonModule,
-      StructureRoutingModule,
-      SharedModule
-  ]
+    imports: [
+        CommonModule,
+        StructureRoutingModule,
+        SharedModule,
+    ]
 })
 export class StructureModule { }

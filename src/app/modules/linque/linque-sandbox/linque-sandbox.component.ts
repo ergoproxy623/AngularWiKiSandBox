@@ -12,9 +12,8 @@ export class LinqueSandboxComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        E.range(1, 10).select(e => {
-            return e === 5;
-        });
+        const num =  E.range(1, 10).select(e => e === 5).toArray();
+        console.log(num);
     }
 
 }

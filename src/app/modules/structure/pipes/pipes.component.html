@@ -1,4 +1,11 @@
+
+
 <div class="wrap">
+    <ng-template appResolve></ng-template>
+    <div>Modal
+        <button class="bnt" (click)="showModal()"></button>
+    </div>
+
     <h3>Angular Pipes</h3>
     <div class="container">
         <h4>Numbers</h4>
@@ -69,4 +76,5 @@
             {{ config$ | async | json }}
         </div>
     </div>
+
 </div>
