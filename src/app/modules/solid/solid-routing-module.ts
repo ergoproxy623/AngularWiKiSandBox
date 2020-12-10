@@ -8,10 +8,10 @@ import {DOfSolidComponent} from './d-of-solid/d-of-solid.component';
 
 const route: Routes = [
     {path: '', component: SOfSolidComponent},
-    {path: '/o', component: OOfSolidComponent},
-    {path: '/l', component: LOfSolidComponent},
-    {path: '/i', component: IOfSolidComponent},
-    {path: '/d', component: DOfSolidComponent},
+    {path: 'o', component: OOfSolidComponent},
+    {path: 'l', component: LOfSolidComponent},
+    {path: 'i', component: IOfSolidComponent},
+    {path: 'd', component: DOfSolidComponent},
 ];
 
 @NgModule({

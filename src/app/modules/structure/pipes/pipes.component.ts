@@ -1,5 +1,5 @@
 import {Component, ComponentFactoryResolver, OnInit, ViewChild} from '@angular/core';
-import { Observable, of} from 'rxjs';
+import { Observable} from 'rxjs';
 import {TestRequestService} from '../../../services/test-request.service';
 import {FireServiceService} from '../../../services/fire-service/fire-service.service';
 import * as momentTZ from 'moment-timezone';
@@ -16,10 +16,8 @@ import {GetConfig, SetConfig} from '../../../store/actions/config.action';
 import {
     selectSelectedId
 } from '../../../store/selectors/router-state.selectors';
-import {RoutingStateService} from "../../../services/routing-state.service";
-import {act} from "@ngrx/effects";
-import {ModalComponent} from "../../../shared/base-elements/modal/modal.component";
-import {ResolveDirective} from "../../../directive/resolve.directive";
+import {ModalComponent} from '../../../shared/base-elements/modal/modal.component';
+import {ResolveDirective} from '../../../directive/resolve.directive';
 @Component({
     selector: 'app-pipes',
     templateUrl: './pipes.component.html',
@@ -87,9 +85,9 @@ export class PipesComponent implements OnInit {
         });
         console.log(this.activeRoute.snapshot.data.users);
 
-        this.fireService.items.subscribe( res => {
-            console.log(res);
-        });
+        // this.fireService.items.subscribe( res => {
+        //     console.log(res);
+        // });
 
     }
 
@@ -99,6 +97,6 @@ export class PipesComponent implements OnInit {
        component.instance.title = 'New title';
        component.instance.close.subscribe( () => {
            this.resolveDir.containerRef.clear();
-       })
+       });
     }
 }

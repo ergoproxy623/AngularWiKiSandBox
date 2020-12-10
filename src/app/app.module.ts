@@ -15,18 +15,18 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {ReactiveFormsModule} from '@angular/forms';
-import {AuthInterceptor} from "./interceptors/auth.interceptor";
-import {StoreModule} from "@ngrx/store";
-import {appReducers} from "./store/reducers/deducers-map";
-import {EffectsModule} from "@ngrx/effects";
-import {UserEffects} from "./store/effects/user.effects";
-import {RouterStateSerializer, StoreRouterConnectingModule} from "@ngrx/router-store";
-import {ConfigEffects} from "./store/effects/config.effects";
-import {StoreDevtoolsModule} from "@ngrx/store-devtools";
-import {MergedRouterStateSerializer} from "./store/reducers/router/merged-route-serialzer";
-import {MonacoEditorModule} from "ngx-monaco-editor";
-import {ResolveDirective} from './directive/resolve.directive';
-import {ModalComponent} from "./shared/base-elements/modal/modal.component";
+import {AuthInterceptor} from './interceptors/auth.interceptor';
+import {StoreModule} from '@ngrx/store';
+import {appReducers} from './store/reducers/deducers-map';
+import {EffectsModule} from '@ngrx/effects';
+import {UserEffects} from './store/effects/user.effects';
+import {StoreRouterConnectingModule} from '@ngrx/router-store';
+import {ConfigEffects} from './store/effects/config.effects';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {MonacoEditorModule} from 'ngx-monaco-editor';
+import {ModalComponent} from './shared/base-elements/modal/modal.component';
+import {AngularFirestoreModule} from "@angular/fire/firestore";
+import {FireServiceService} from "./services/fire-service/fire-service.service";
 
 
 // tslint:disable-next-line:typedef
@@ -68,12 +68,10 @@ export const routerStateConfig = {
         MonacoEditorModule.forRoot(),
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireDatabaseModule,
+        AngularFirestoreModule,
         NgbModule,
     ],
-    providers: [INTERCEPTOR_PROVIDER, {
-        provide: RouterStateSerializer,
-        useClass: MergedRouterStateSerializer,
-    }],
+    providers: [INTERCEPTOR_PROVIDER, FireServiceService],
     bootstrap: [AppComponent],
     entryComponents: [ModalComponent]
 })

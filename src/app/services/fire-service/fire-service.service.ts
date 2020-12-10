@@ -3,9 +3,7 @@ import {Observable} from 'rxjs';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import {UserDto} from '../../classDTO/userDto/userDto';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FireServiceService {
 
     itemsCollection: AngularFireList<any>;

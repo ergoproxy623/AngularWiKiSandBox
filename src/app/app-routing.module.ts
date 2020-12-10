@@ -48,6 +48,10 @@ const routes: Routes = [
     {
         path: 'sandbox',
         loadChildren: () => import('./modules/sandbox-js/sandbox-js.module').then( (m) => m.SandboxJsModule)
+    },
+    {
+        path: 'solid',
+        loadChildren: () => import('./modules/solid/solid.module').then( (m) => m.SolidModule)
     }
 ];
 

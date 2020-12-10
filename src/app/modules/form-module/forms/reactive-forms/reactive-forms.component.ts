@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FireServiceService} from '../../../../services/fire-service/fire-service.service';
 import {UserDto} from '../../../../classDTO/userDto/userDto';
-import {CustomValidators} from "../validators/custom.validators";
+import {CustomValidators} from '../validators/custom.validators';
 
 @Component({
   selector: 'app-reactive-forms',

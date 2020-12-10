@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsComponent } from './forms/reactive-forms/reactive-forms.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FormsRoutingModule} from './forms-routing.module';
+import {AngularFireModule} from "@angular/fire";
 
 
 
@@ -11,7 +12,8 @@ import {FormsRoutingModule} from './forms-routing.module';
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        FormsRoutingModule
+        FormsRoutingModule,
+        AngularFireModule
     ]
 })
 export class FormsModule { }

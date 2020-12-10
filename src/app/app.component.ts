@@ -25,6 +25,16 @@ export class AppComponent {
             ]
         },
         {
+            title: 'S.O.L.I.D',
+            linkArr: [
+                {link: '/solid', title: 'SRP'},
+                {link: '/solid/o', title: 'Open-Close'},
+                {link: '/solid/l', title: 'Liscov Substitution'},
+                {link: '/solid/i', title: 'Interface segregation'},
+                {link: '/solid/d', title: 'Bunding'},
+            ]
+        },
+        {
             title: 'Sandbox',
             linkArr: [
                 {link: '/sandbox', title: 'Sandbox'},
