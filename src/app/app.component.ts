@@ -35,6 +35,12 @@ export class AppComponent {
             ]
         },
         {
+            title: 'RX-JS',
+            linkArr: [
+                {link: '/rxjs', title: 'RX-JS'},
+            ]
+        },
+        {
             title: 'Sandbox',
             linkArr: [
                 {link: '/sandbox', title: 'Sandbox'},

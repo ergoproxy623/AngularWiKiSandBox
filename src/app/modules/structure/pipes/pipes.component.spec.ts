@@ -3,7 +3,7 @@ import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/t
 import {PipesComponent} from './pipes.component';
 import {TestRequestService} from '../../../services/test-request.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {BehaviorSubject, of} from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import {FilterPipe} from './filter.pipe';
 import {MultiPipe} from './multi.pipe';
 import {DebugElement} from '@angular/core';
@@ -21,6 +21,7 @@ import {ConfigEffects} from '../../../store/effects/config.effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {routerStateConfig} from '../../../app.module';
 import {RouterModule} from '@angular/router';
+import {UserDTO} from "../../solid/i-of-solid/i-of-solid.component";
 
 
 describe('PipesComponent', () => {
@@ -39,6 +40,12 @@ describe('PipesComponent', () => {
         }),
     };
 
+    class TestRecClass {
+        getUsers(): Observable<UserDTO[]> {
+            return new Observable<UserDTO[]>();
+        }
+    }
+
     beforeEach(async(() => {
 
         TestBed.configureTestingModule({
@@ -51,13 +58,12 @@ describe('PipesComponent', () => {
                 StoreModule.forRoot(appReducers),
                 EffectsModule.forRoot([UserEffects, ConfigEffects]),
                 StoreRouterConnectingModule.forRoot(routerStateConfig),
-
                 StoreDevtoolsModule.instrument({
                     maxAge: 20,
                     logOnly: !environment.production,
                 }), ],
             declarations: [PipesComponent, FilterPipe, MultiPipe],
-            providers: [ TestRequestService,
+            providers: [{provide: TestRequestService, useClass: TestRecClass },
                 FireServiceService, ]
         })
             .compileComponents();
@@ -78,9 +84,10 @@ describe('PipesComponent', () => {
     });
 
     it('should render title', () => {
-        const el = fixture.nativeElement;
-        const text = el.querySelector('h3');
-        expect(text.textContent).toContain('Pipes');
+        fixture.detectChanges();
+        const compiled = fixture.debugElement.nativeElement;
+        expect(compiled.querySelector('h3').textContent)
+            .toContain('Pipes');
     });
 
     it('should not empty tests arr', () => {

@@ -1,3 +1,4 @@
+import { RxJsModule } from './modules/rx-js/rx-js.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, Provider} from '@angular/core';
 
@@ -54,6 +55,7 @@ export const routerStateConfig = {
         AppRoutingModule,
         TestsModule,
         ReactiveFormsModule,
+        RxJsModule,
         BrowserAnimationsModule,
         SharedModule,
         StoreModule.forRoot(appReducers),

@@ -21,6 +21,13 @@ const routes: Routes = [
        canActivateChild: [AuthGuard]
     },
     {
+        path: 'rxjs',
+        loadChildren: () =>
+            import('./modules/rx-js/rx-js.module').then(
+                (m) => m.RxJsModule),
+       canActivateChild: [AuthGuard]
+    },
+    {
         path: 'linq',
         loadChildren: () =>
             import('./modules/linque/linque.module').then(

@@ -40,7 +40,7 @@ export class User implements SetUser {
 }
 
 export interface PlanDTO {
-    procedures: PlanItem[];
+    plan: PlanItem[];
 }
 
 export interface PlanItem {
@@ -56,6 +56,8 @@ export class Plan implements SetPlan {
     plan: PlanDTO;
 
     setPlan(item: PlanItem): void {
-        this.plan.procedures.push(item);
+        if (this.plan) {
+            this.plan.plan.push(item);
+        }
     }
 }
