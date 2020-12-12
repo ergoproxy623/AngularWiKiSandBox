@@ -1,3 +1,4 @@
+import { GetUser } from './../../../store/actions/user.action';
 import {Component, ComponentFactoryResolver, OnInit, ViewChild} from '@angular/core';
 import { Observable} from 'rxjs';
 import {TestRequestService} from '../../../services/test-request.service';
@@ -7,7 +8,7 @@ import {IAppState} from '../../../store/state/app.state';
 import {Store} from '@ngrx/store';
 import {ActivatedRoute, Router} from '@angular/router';
 import {select} from '@ngrx/store';
-import {selectedUserList} from '../../../store/selectors/user.selectors';
+import {selectedUserList, selectSelectedUser} from '../../../store/selectors/user.selectors';
 import {GetUsers} from '../../../store/actions/user.action';
 import {IUserDto} from '../../../classDTO/userDto/userDto';
 import {IConfig} from '../../../classDTO/config/config,interface';
@@ -49,6 +50,7 @@ export class PipesComponent implements OnInit {
     });
 
     users$: Observable<IUserDto[]> = this.store.pipe(select(selectedUserList));
+    user$: Observable<IUserDto> = this.store.pipe(select(selectSelectedUser));
     config$: Observable<IConfig> = this.store.pipe(select(selectedConfig));
     store$: Observable<any> = this.store.pipe(select(selectSelectedId));
     @ViewChild(ResolveDirective) resolveDir: ResolveDirective;
@@ -65,6 +67,7 @@ export class PipesComponent implements OnInit {
     ngOnInit(): void {
         this.store.dispatch(new GetUsers());
         this.store.dispatch(new GetConfig());
+        this.store.dispatch(new GetUser(1))
         setTimeout( () => {
             this.store.dispatch(new SetConfig({adminName: 'Arthur', premissions: ['edit']}));
         }, 5000);
@@ -88,6 +91,7 @@ export class PipesComponent implements OnInit {
         // this.fireService.items.subscribe( res => {
         //     console.log(res);
         // });
+        this.store.dispatch(new GetUser(1))
 
     }
 
