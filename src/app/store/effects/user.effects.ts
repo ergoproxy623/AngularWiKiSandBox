@@ -7,7 +7,7 @@ import {EUserAction, GetUser, GetUsers, GetUsersSuccess, GetUserSuccess} from '.
 import {map, mergeMap, switchMap, withLatestFrom} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {select} from '@ngrx/store';
-import { selectedUserList } from '../selectors/user.selectors';
+import { selectUserList} from '../selectors/user.selectors';
 
 @Injectable()
 export class UserEffects {
@@ -22,9 +22,8 @@ export class UserEffects {
     getUser$ = this.actions$.pipe(
         ofType<GetUser>(EUserAction.GetUser),
         map(action => action.payload),
-        withLatestFrom(this.store.pipe(select(selectedUserList))),
+        withLatestFrom(this.store.pipe(select(selectUserList))),
         switchMap(([id, users]) => {
-            console.log(users, id)
             const selectedUser = users.filter( user => user['id'] === +id )[0];
             return of( new GetUserSuccess(selectedUser));
         })

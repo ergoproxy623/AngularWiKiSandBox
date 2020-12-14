@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 import { of } from 'rxjs/internal/observable/of';
 import { debounce, debounceTime, delay, flatMap, map, tap } from 'rxjs/operators'
@@ -8,7 +8,7 @@ import { debounce, debounceTime, delay, flatMap, map, tap } from 'rxjs/operators
   templateUrl: './rx-js.component.html',
   styleUrls: ['./rx-js.component.scss']
 })
-export class RxJsComponent implements OnInit {
+export class RxJsComponent implements OnInit, OnDestroy {
 
    subscriber: Subscription[] = [];
 
@@ -21,33 +21,31 @@ export class RxJsComponent implements OnInit {
 
   showInterval() {
     const interval$ = interval(1000).subscribe( c => {
-        console.log(c)
-    })
-    this.subscriber.push(interval$)
+        console.log(c);
+    });
+    this.subscriber.push(interval$);
   }
 
   showOf() {
-    this.showOf();
-    const  of$ = of([1, 2 ,4])
+    const  of$ = of([1, 2 , 4])
     .pipe(
         tap( i => {
-            console.log('tap '+ i)
-            return i
+            console.log('tap ' + i);
+            return i;
         }),
         flatMap( a => a),
-         delay(2000),
+        delay(2000),
         map( i =>  i),
 
     )
-    .subscribe( c =>  console.log('of' + c))
-    this.subscriber.push(of$)
+    .subscribe( c =>  console.log('of' + c));
+    this.subscriber.push(of$);
   }
 
 
   ngOnDestroy(): void {
 
-      this.subscriber.forEach( (i: Subscription) =>  i.unsubscribe() )
-      console.log(this.subscriber)
+      this.subscriber.forEach( (i: Subscription) =>  i.unsubscribe() );
   }
 
 }

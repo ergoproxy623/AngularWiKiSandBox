@@ -8,11 +8,9 @@ import {FilterPipe} from './filter.pipe';
 import {MultiPipe} from './multi.pipe';
 import {DebugElement} from '@angular/core';
 import {FireServiceService} from '../../../services/fire-service/fire-service.service';
-import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../../../../environments/environment';
-import {AngularFireDatabaseModule} from '@angular/fire/database';
-import {StoreModule} from '@ngrx/store';
+import {createSelector, StoreModule} from '@ngrx/store';
 import {appReducers} from '../../../store/reducers/deducers-map';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import {EffectsModule} from '@ngrx/effects';
@@ -21,13 +19,23 @@ import {ConfigEffects} from '../../../store/effects/config.effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {routerStateConfig} from '../../../app.module';
 import {RouterModule} from '@angular/router';
-import {UserDTO} from "../../solid/i-of-solid/i-of-solid.component";
+import {UserDTO} from '../../solid/i-of-solid/i-of-solid.component';
+import {IAppState, initializeAppState} from '../../../store/state/app.state';
+import {IUserState} from '../../../store/state/user.state';
+import {MockStore} from "@ngrx/store/testing";
 
+export const selectUsers = (state: IAppState) => state.users;
+
+export const selectedUserList = createSelector(
+    selectUsers,
+    (state: IUserState) => state.users
+);
 
 describe('PipesComponent', () => {
     let component: PipesComponent;
     let fixture: ComponentFixture<PipesComponent>;
     let service: TestRequestService;
+    let store: MockStore;
     let spy: jasmine.Spy;
     let de: DebugElement;
 
@@ -51,9 +59,8 @@ describe('PipesComponent', () => {
         TestBed.configureTestingModule({
             imports: [
                 RouterModule.forRoot([]),
-                HttpClientTestingModule ,  AngularFireModule.initializeApp(environment.firebase),
-                AngularFireDatabaseModule,
-                AngularFirestoreModule,
+                HttpClientTestingModule ,
+                AngularFireModule.initializeApp(environment.firebase),
                 StoreRouterConnectingModule,
                 StoreModule.forRoot(appReducers),
                 EffectsModule.forRoot([UserEffects, ConfigEffects]),
@@ -66,7 +73,6 @@ describe('PipesComponent', () => {
             providers: [{provide: TestRequestService, useClass: TestRecClass },
                 FireServiceService, ]
         })
-            .compileComponents();
     }));
 
     beforeEach(() => {
