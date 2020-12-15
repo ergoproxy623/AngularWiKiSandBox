@@ -2,7 +2,7 @@
     <div class="container">
         <form [formGroup]="createUserForm" (ngSubmit)="createUser()"  >
             <div class="input-group mb-3 pt-1">
-                <input type="text" class="form-control w-100"
+                <input #input [textMask]="{mask: mask(input.value)}" type="text" class="form-control w-100"
                         placeholder="Username" aria-label="Username"
                         aria-describedby="basic-addon1" [formControlName]="'name'">
                 <div class="validation">

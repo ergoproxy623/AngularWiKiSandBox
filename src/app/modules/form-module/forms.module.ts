@@ -4,6 +4,7 @@ import { ReactiveFormsComponent } from './forms/reactive-forms/reactive-forms.co
 import {ReactiveFormsModule} from '@angular/forms';
 import {FormsRoutingModule} from './forms-routing.module';
 import {AngularFireModule} from "@angular/fire";
+import {TextMaskModule} from "angular2-text-mask";
 
 
 
@@ -13,7 +14,8 @@ import {AngularFireModule} from "@angular/fire";
         CommonModule,
         ReactiveFormsModule,
         FormsRoutingModule,
-        AngularFireModule
+        AngularFireModule,
+        TextMaskModule
     ]
 })
 export class FormsModule { }

@@ -7,7 +7,7 @@ import {selectUserGitList} from '../../../store/selectors/user.selectors';
 import {Observable} from 'rxjs';
 import {IUserDto} from '../../../classDTO/userDto/userDto';
 import {GetUsersGit} from '../../../store/actions/user.action';
-
+import * as ramda from 'ramda';
 @Component({
     selector: 'app-linque-sandbox',
     templateUrl: './linque-sandbox.component.html',
@@ -32,7 +32,8 @@ export class LinqueSandboxComponent implements OnInit {
         console.log(sad);
         this.gitService.getGithubUsers('proxy').subscribe( resp => {
             this.testArr = resp.items;
-
+            console.log(ramda);
+            console.log ( ramda.map([1, 2, 3]));
             this.linqLast();
         });
     }

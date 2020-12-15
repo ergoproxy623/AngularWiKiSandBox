@@ -7,14 +7,13 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
     title = 'project-for-tests';
-    linkArr: any[] = [{link: '/', title: 'Login', linkArr: []},
+    linkArr: any[] = [
         {
             title: 'Form',
             linkArr: [
                 {link: '/forms', title: 'Reactive Forms'},
             ]
         },
-        {link: '/methode', title: 'Method', linkArr: []},
         {
             title: 'Structure',
             linkArr: [
@@ -52,8 +51,6 @@ export class AppComponent {
                 {link: '/linq', title: 'Linq'},
             ]
         },
-        {link: '/tests', title: 'Tests', linkArr: []},
-        {link: '/style', title: 'Style', linkArr: []},
         {link: '/sheduler', title: 'Sheduler', linkArr: []},
     ];
 }

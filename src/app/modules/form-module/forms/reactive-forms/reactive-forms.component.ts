@@ -74,7 +74,7 @@ export class ReactiveFormsComponent implements OnInit {
 
     setAll() {
         this.createUserForm.patchValue({
-            name: 'Arthur',
+            name: 123123,
             age: 32,
             address: {
                 street: '123 str',
@@ -90,6 +90,16 @@ export class ReactiveFormsComponent implements OnInit {
                 country: 'Antarktida',
             }
         });
+    }
+
+     mask(value){
+         console.log(value);
+         if (value[1] == 1) {
+             return ['+', /[1-9]/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+         } else {
+             return ['+', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+         }
+
     }
 
     addAuto() {
