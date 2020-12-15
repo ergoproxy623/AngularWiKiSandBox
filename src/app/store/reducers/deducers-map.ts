@@ -1,5 +1,5 @@
 import {IAppState} from '../state/app.state';
-import { ActionReducerMap } from '@ngrx/store';
+import {ActionReducerMap} from '@ngrx/store';
 import {routerReducer} from '@ngrx/router-store';
 import {UserReducer} from './user.reducers';
 import {ConfigReducer} from './config.reducer';

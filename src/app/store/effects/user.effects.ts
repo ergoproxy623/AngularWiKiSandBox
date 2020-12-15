@@ -3,16 +3,26 @@ import {TestRequestService} from '../../services/test-request.service';
 import {Actions, Effect, ofType} from '@ngrx/effects';
 import {IAppState} from '../state/app.state';
 import {Store} from '@ngrx/store';
-import {EUserAction, GetUser, GetUsers, GetUsersSuccess, GetUserSuccess} from '../actions/user.action';
+import {
+    EUserAction,
+    GetUser,
+    GetUsers,
+    GetUsersGit,
+    GetUsersGitSuccess,
+    GetUsersSuccess,
+    GetUserSuccess
+} from '../actions/user.action';
 import {map, mergeMap, switchMap, withLatestFrom} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {select} from '@ngrx/store';
 import { selectUserList} from '../selectors/user.selectors';
+import {GitService} from "../../services/git-api/git.service";
 
 @Injectable()
 export class UserEffects {
     constructor(
         private userService: TestRequestService,
+        private gitService: GitService,
         private actions$: Actions,
         private store: Store<IAppState>
     ) {
@@ -36,6 +46,14 @@ export class UserEffects {
                 map( (users) => new GetUsersSuccess(users.data) )
             )
         ),
+    );
+
+    @Effect()
+    getUsersGit$ = this.actions$.pipe(
+        ofType<GetUsersGit>(EUserAction.GetUsersGit),
+        mergeMap( () => this.gitService.getGithubUsers('ergo').pipe(
+            map( (users) => new GetUsersGitSuccess(users.items))
+        ) )
     );
 }
 

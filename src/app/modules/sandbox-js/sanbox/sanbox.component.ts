@@ -9,7 +9,7 @@ export class SanboxComponent implements OnInit, AfterViewInit {
     editorOptions = {theme: 'vs-dark', language: 'javascript'};
     iframeWindow: any;
     iframeDoc: any;
-
+    show = false;
     code = 'let adminName = \'Arthur\';\n' +
         'let newAdmin = \'\'\n' +
         '\n' +
@@ -66,21 +66,24 @@ export class SanboxComponent implements OnInit, AfterViewInit {
         window['hello'] =  () => {
             alert('hello from owner!');
         };
-
-        const iframe = document.getElementById('frameID');
-        this.iframeWindow = iframe['contentWindow'] || iframe;
-        this.iframeDoc = iframe['contentDocument'] || this.iframeWindow.document;
     }
 
     runCode() {
-        this.iframeDoc.open();
-        this.iframeDoc.write('iframe here 2');
-        this.iframeDoc.write("<script>" + this.code + "</script>");
-        this.iframeDoc.write("<script>" + '' + "</script>");
-        this.iframeDoc.close();
-        const body = this.iframeDoc.querySelector('body');
-        console.log(body);
-        console.log(this.iframeDoc);
-    }
 
+        this.show = !this.show;
+        setTimeout( () => {
+            const iframe: any = document.getElementById('frameID');
+            this.iframeWindow = iframe.contentWindow || iframe;
+            this.iframeDoc = iframe.contentDocument || this.iframeWindow.document;
+            this.iframeDoc.open();
+            this.iframeDoc.write('iframe here 2');
+            this.iframeDoc.write('<script>' + this.code + '</script>');
+            this.iframeDoc.close();
+        }, 500);
+
+        setTimeout( () => {
+            this.show = !this.show;
+        }, 500 );
+
+    }
 }

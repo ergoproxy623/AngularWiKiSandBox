@@ -1,4 +1,4 @@
-import {GetUser} from './../../../store/actions/user.action';
+import {GetUser} from '../../../store/actions/user.action';
 import {Component, ComponentFactoryResolver, OnInit, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs';
 import {TestRequestService} from '../../../services/test-request.service';

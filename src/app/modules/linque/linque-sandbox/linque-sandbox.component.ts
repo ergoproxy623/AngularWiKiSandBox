@@ -1,6 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import * as E from 'linq';
-import {GitService} from "../../../services/git-api/git.service";
+import {GitService} from '../../../services/git-api/git.service';
+import {select, Store} from '@ngrx/store';
+import {IAppState} from '../../../store/state/app.state';
+import {selectUserGitList} from '../../../store/selectors/user.selectors';
+import {Observable} from 'rxjs';
+import {IUserDto} from '../../../classDTO/userDto/userDto';
+import {GetUsersGit} from '../../../store/actions/user.action';
 
 @Component({
     selector: 'app-linque-sandbox',
@@ -9,14 +15,20 @@ import {GitService} from "../../../services/git-api/git.service";
 })
 export class LinqueSandboxComponent implements OnInit {
     testArr = [];
-    constructor(private gitService: GitService) {
+    usersGit$: Observable<IUserDto[]> = this.store.pipe(select(selectUserGitList));
+
+    constructor(
+        private gitService: GitService,
+        private store: Store<IAppState>,
+                ) {
     }
 
     ngOnInit(): void {
+        this.store.dispatch(new GetUsersGit());
         this.linqRange();
 
 
-        const sad = E.from(this.testArr).contains( 2)
+        const sad = E.from(this.testArr).contains( 2);
         console.log(sad);
         this.gitService.getGithubUsers('proxy').subscribe( resp => {
             this.testArr = resp.items;

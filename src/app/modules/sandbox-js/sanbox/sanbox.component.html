@@ -2,8 +2,8 @@
     <div class="col-12">
         <ngx-monaco-editor [options]="editorOptions" class="my-code-editor" [(ngModel)]="code"></ngx-monaco-editor>
     </div>
-    <div  class="col-4" [hidden]="true">
-        <iframe id="frameID" width="100%" height="100%" frameborder="0"   scrolling="no"></iframe>
+    <div  class="col-4" *ngIf="show" [hidden]="true">
+        <iframe  id="frameID" width="100%" height="100%" frameborder="0"   scrolling="no" ></iframe>
     </div>
 
 </div>

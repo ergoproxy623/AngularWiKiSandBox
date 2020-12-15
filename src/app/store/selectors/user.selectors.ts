@@ -9,6 +9,12 @@ export const selectUserList = createSelector(
     (state: IUserState) => state.users
 );
 
+export const selectUserGitList = createSelector(
+    selectUsers,
+    (state: IUserState) => state.usersGit
+);
+
+
 export const selectSelectedUser = createSelector(
     selectUsers,
     (state: IUserState) => state.selectedUser

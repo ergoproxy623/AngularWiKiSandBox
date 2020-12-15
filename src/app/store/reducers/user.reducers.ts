@@ -1,4 +1,3 @@
-
 import {EUserAction, UserAction} from '../actions/user.action';
 import {initializeUserState, IUserState} from '../state/user.state';
 
@@ -16,6 +15,12 @@ export const UserReducer = (
             return {
                 ...state,
                 selectedUser: action.payload
+            };
+
+        case EUserAction.GetUsersGitSuccess:
+            return {
+                ...state,
+                usersGit: action.payload
             };
         default:
             return state;
