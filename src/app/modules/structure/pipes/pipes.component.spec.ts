@@ -2,27 +2,18 @@ import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/t
 
 import {PipesComponent} from './pipes.component';
 import {TestRequestService} from '../../../services/test-request.service';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {FilterPipe} from './filter.pipe';
 import {MultiPipe} from './multi.pipe';
 import {DebugElement} from '@angular/core';
 import {FireServiceService} from '../../../services/fire-service/fire-service.service';
-import {AngularFireModule} from '@angular/fire';
-import {environment} from '../../../../environments/environment';
-import {createSelector, StoreModule} from '@ngrx/store';
-import {appReducers} from '../../../store/reducers/deducers-map';
-import {StoreRouterConnectingModule} from '@ngrx/router-store';
-import {EffectsModule} from '@ngrx/effects';
-import {UserEffects} from '../../../store/effects/user.effects';
-import {ConfigEffects} from '../../../store/effects/config.effects';
-import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {routerStateConfig} from '../../../app.module';
-import {RouterModule} from '@angular/router';
+import {createSelector} from '@ngrx/store';
 import {UserDTO} from '../../solid/i-of-solid/i-of-solid.component';
-import {IAppState, initializeAppState} from '../../../store/state/app.state';
+import {IAppState} from '../../../store/state/app.state';
 import {IUserState} from '../../../store/state/user.state';
-import {MockStore} from "@ngrx/store/testing";
+import {MockStore} from '@ngrx/store/testing';
+import {TestBadImportConfig} from '../../../../test';
+import {RouterTestingModule} from '@angular/router/testing';
 
 export const selectUsers = (state: IAppState) => state.users;
 
@@ -41,7 +32,7 @@ describe('PipesComponent', () => {
 
     const FirestoreStub = {
         collection: (name: string) => ({
-            doc: (_id: string) => ({
+            items: (_id: string) => ({
                 valueChanges: () => new BehaviorSubject({ foo: 'bar' }),
                 set: (_d: any) => new Promise((resolve, _reject) => resolve()),
             }),
@@ -57,22 +48,12 @@ describe('PipesComponent', () => {
     beforeEach(async(() => {
 
         TestBed.configureTestingModule({
-            imports: [
-                RouterModule.forRoot([]),
-                HttpClientTestingModule ,
-                AngularFireModule.initializeApp(environment.firebase),
-                StoreRouterConnectingModule,
-                StoreModule.forRoot(appReducers),
-                EffectsModule.forRoot([UserEffects, ConfigEffects]),
-                StoreRouterConnectingModule.forRoot(routerStateConfig),
-                StoreDevtoolsModule.instrument({
-                    maxAge: 20,
-                    logOnly: !environment.production,
-                }), ],
+            imports:  [...TestBadImportConfig(), RouterTestingModule ],
             declarations: [PipesComponent, FilterPipe, MultiPipe],
-            providers: [{provide: TestRequestService, useClass: TestRecClass },
-                FireServiceService, ]
-        })
+            providers: [{provide: TestRequestService, useClass: TestRecClass }, { provide: FireServiceService, useFactory: () => {
+                return { items: new BehaviorSubject([{name: 'John', age: 10}]) };
+                } }]
+        });
     }));
 
     beforeEach(() => {

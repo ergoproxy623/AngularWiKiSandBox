@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import * as sandbox from './../../../../../src/custom';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 @Component({
   selector: 'app-sanbox',
   templateUrl: './sanbox.component.html',
   styleUrls: ['./sanbox.component.scss']
 })
-export class SanboxComponent implements OnInit {
+export class SanboxComponent implements OnInit, AfterViewInit {
+    @ViewChild('iframe') iframe;
     editorOptions = {theme: 'vs-dark', language: 'javascript'};
+    iframeWindow: any;
+    iframeDoc: any;
+
     code = 'let adminName = \'Arthur\';\n' +
         'let newAdmin = \'\'\n' +
         '\n' +
@@ -33,7 +36,6 @@ export class SanboxComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-      sandbox.runCode();
   }
 
     // let adminName = 'Arthur';
@@ -59,4 +61,26 @@ export class SanboxComponent implements OnInit {
     // const saveP = checkPermissionDecorator(save);
     // saveP('Arthur')
     // console.log(newAdmin)
+
+    ngAfterViewInit() {
+        window['hello'] =  () => {
+            alert('hello from owner!');
+        };
+
+        const iframe = document.getElementById('frameID');
+        this.iframeWindow = iframe['contentWindow'] || iframe;
+        this.iframeDoc = iframe['contentDocument'] || this.iframeWindow.document;
+    }
+
+    runCode() {
+        this.iframeDoc.open();
+        this.iframeDoc.write('iframe here 2');
+        this.iframeDoc.write("<script>" + this.code + "</script>");
+        this.iframeDoc.write("<script>" + '' + "</script>");
+        this.iframeDoc.close();
+        const body = this.iframeDoc.querySelector('body');
+        console.log(body);
+        console.log(this.iframeDoc);
+    }
+
 }

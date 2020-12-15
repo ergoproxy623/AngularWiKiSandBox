@@ -83,9 +83,9 @@ export class PipesComponent implements OnInit {
         });
         console.log(this.activeRoute.snapshot.data.users);
 
-        // this.fireService.items.subscribe( res => {
-        //     console.log(res);
-        // });
+        this.fireService.items.subscribe( res => {
+            console.log(res);
+        });
 
     }
 

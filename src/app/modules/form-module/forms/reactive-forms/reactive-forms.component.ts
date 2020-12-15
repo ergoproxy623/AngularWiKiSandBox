@@ -35,6 +35,7 @@ export class ReactiveFormsComponent implements OnInit {
 
   createUser(): void {
       const newUser: UserDto = this.createUserForm.value;
+      console.log(newUser);
       this.fireService.addUser(newUser);
   }
 

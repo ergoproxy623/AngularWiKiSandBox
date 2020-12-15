@@ -3,13 +3,23 @@ interface Supe {
     name: string;
     teist: string;
 }
-class SupeBorch implements Supe  {
-   name: string;
-   teist = 'crap';
-    constructor(name) {
-     this.name = name;
-   }
+class SupeBorch implements Supe {
+    teist = 'crap';
+
+    constructor(public name: string) {
+    }
+
+    getTeist() {
+        return this.teist;
+    }
 }
+
+function createNewPromise() {
+    return Promise.resolve([1, 2 , 3]);
+}
+
+
+console.log(createNewPromise());
 
 let supe = 'Suppen';
 

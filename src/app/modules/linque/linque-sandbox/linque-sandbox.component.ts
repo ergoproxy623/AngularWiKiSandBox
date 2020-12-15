@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import * as E from 'linq';
+import {GitService} from "../../../services/git-api/git.service";
 
 @Component({
     selector: 'app-linque-sandbox',
@@ -7,22 +8,25 @@ import * as E from 'linq';
     styleUrls: ['./linque-sandbox.component.scss']
 })
 export class LinqueSandboxComponent implements OnInit {
-    testArr = [1 ,2 ,3 ];
-    constructor() {
+    testArr = [];
+    constructor(private gitService: GitService) {
     }
 
     ngOnInit(): void {
         this.linqRange();
-        this.linqLast()
+
 
         const sad = E.from(this.testArr).contains( 2)
         console.log(sad);
+        this.gitService.getGithubUsers('proxy').subscribe( resp => {
+            this.testArr = resp.items;
 
+            this.linqLast();
+        });
     }
 
     linqLast() {
-    const adssa = E.from(this.testArr).last()
-    console.log(adssa);
+    console.log(E.from(this.testArr).last());
     }
 
     linqRange() {

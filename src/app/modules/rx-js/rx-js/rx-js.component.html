@@ -1,3 +1,24 @@
-<p>
-  rx-js works!
-</p>
+<div class="wrap">
+    <div class="container">
+            <div class="input-group mb-3 pt-1">
+                <input #search type="text" class="form-control w-100"
+                       placeholder="Search Username" aria-label="Username"
+                       aria-describedby="basic-addon1" >
+                <div class="validation">
+                </div>
+            </div>
+    </div>
+
+    <div class="row d-flex justify-content-center overflow-auto mt-5">
+        <div class="col-3 offset-s3">
+           <div class="card mb-2" *ngFor="let user of gitSearch$ | async">
+                   <img class="card-img-top" [src]="user.avatar_url">
+
+               <div class="card-body">
+                   <span class="card-title">{{ user.login }}</span>
+                   <a [href]="user.html_url" target="_blank"> View profile</a>
+               </div>
+           </div>
+        </div>
+    </div>
+</div>
