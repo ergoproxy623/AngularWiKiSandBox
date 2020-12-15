@@ -28,6 +28,13 @@ const routes: Routes = [
        canActivateChild: [AuthGuard]
     },
     {
+        path: 'animation',
+        loadChildren: () =>
+            import('./modules/animation/animation.module').then(
+                (m) => m.AnimationModule),
+        canActivateChild: [AuthGuard]
+    },
+    {
         path: 'linq',
         loadChildren: () =>
             import('./modules/linque/linque.module').then(

@@ -24,6 +24,12 @@ export class AppComponent {
             ]
         },
         {
+            title: 'Animation',
+            linkArr: [
+                {link: '/animation', title: 'Animation'},
+            ]
+        },
+        {
             title: 'S.O.L.I.D',
             linkArr: [
                 {link: '/solid', title: 'SRP'},
