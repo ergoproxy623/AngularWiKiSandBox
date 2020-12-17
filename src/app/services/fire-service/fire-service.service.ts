@@ -17,7 +17,6 @@ export class FireServiceService {
     }
 
     addUser(user: UserDto) {
-        console.log(user);
         this.itemsCollection.push(user);
     }
 

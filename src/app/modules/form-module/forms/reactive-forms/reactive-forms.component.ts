@@ -27,9 +27,14 @@ export class ReactiveFormsComponent implements OnInit {
           email: [ '', CustomValidators.fakeEmail, CustomValidators.emailExist ],
           address: this.fb.group({
               street: ['', Validators.required],
-              country: ['']
+              country: [''],
+              counter: [0],
           }),
           auto: this.fb.array([])
+      });
+
+      this.createUserForm.valueChanges.subscribe( v => {
+          console.log(v);
       });
   }
 
@@ -93,11 +98,10 @@ export class ReactiveFormsComponent implements OnInit {
     }
 
      mask(value){
-         console.log(value);
-         if (value[1] == 1) {
-             return ['+', /[1-9]/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+         if (value[1] == 'A') {
+             return ['+', /^[a-zA-Z]+$/,  /^[a-zA-Z]+$/];
          } else {
-             return ['+', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+             return ['+', /^[a-zA-Z]+$/,  /^[a-zA-Z]+$/];
          }
 
     }

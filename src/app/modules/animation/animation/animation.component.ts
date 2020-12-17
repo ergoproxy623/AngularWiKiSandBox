@@ -13,11 +13,22 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
             transition('start => end', animate(450)),
             transition('end => start', animate(550)),
             transition('middle <=> *', animate(550)),
+            // void => *
+            transition(':enter', [
+                style({opacity: 0}),
+                animate('850ms ease-out')
+            ]),
+            // * => void
+            transition(':leave', [
+                style( {   transform: 'translate(0, 40%) scale(1.2)'} ),
+                animate(750)
+            ])
         ])
     ]
 })
 export class AnimationComponent implements OnInit {
     state = 'start';
+    visible = true;
 
     constructor() {
     }
@@ -30,6 +41,6 @@ export class AnimationComponent implements OnInit {
     }
 
     toggleMiddle() {
-        this.state = 'middle'
+        this.state = 'middle';
     }
 }

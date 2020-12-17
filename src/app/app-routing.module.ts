@@ -35,6 +35,13 @@ const routes: Routes = [
         canActivateChild: [AuthGuard]
     },
     {
+        path: 'patterns',
+        loadChildren: () =>
+            import('./modules/patterns/patterns.module').then(
+                (m) => m.PatternsModule),
+        canActivateChild: [AuthGuard]
+    },
+    {
         path: 'linq',
         loadChildren: () =>
             import('./modules/linque/linque.module').then(

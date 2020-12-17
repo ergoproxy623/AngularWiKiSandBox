@@ -30,6 +30,12 @@ export class AppComponent {
             ]
         },
         {
+            title: 'Patterns',
+            linkArr: [
+                {link: '/patterns', title: 'Patterns'},
+            ]
+        },
+        {
             title: 'S.O.L.I.D',
             linkArr: [
                 {link: '/solid', title: 'SRP'},
