@@ -31,9 +31,10 @@ export class LinqueSandboxComponent implements OnInit {
         const sad = E.from(this.testArr).contains( 2);
         console.log(sad);
         this.gitService.getGithubUsers('proxy').subscribe( resp => {
-            this.testArr = resp.items;
-            console.log(ramda);
-            console.log ( ramda.map([1, 2, 3]));
+            console.log(resp);
+            const regex = /^.*(proxy).*$/;
+            this.testArr = E.from( resp.items).where( (u: any) => u.login.match(regex) ).toArray();
+            console.log(this.testArr);
             this.linqLast();
         });
     }
