@@ -33,6 +33,8 @@ export class AppComponent {
             title: 'Patterns',
             linkArr: [
                 {link: '/patterns', title: 'Patterns'},
+                {link: '/patterns/factory', title: 'Factory'},
+                {link: '/patterns/prototype', title: 'Proto'},
             ]
         },
         {
