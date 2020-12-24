@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import {UserDto} from '../../classDTO/userDto/userDto';
-import {map} from "rxjs/operators";
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class FireServiceService {
