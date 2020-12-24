@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import {UserDto} from '../../classDTO/userDto/userDto';
@@ -11,9 +11,9 @@ export class FireServiceService {
     items: Observable<UserDto[]>;
 
     constructor(public db: AngularFireDatabase) {
-        this.itemsCollection  = this.db.list('users');
+        this.itemsCollection = this.db.list('users');
         this.items = this.itemsCollection.snapshotChanges()
-            .pipe(map((users: any[]) => users.map(user => ({ id: user.key, ...user.payload.val() }))));
+            .pipe(map((users: any[]) => users.map(user => ({id: user.key, ...user.payload.val()}))));
     }
 
     addUser(user: UserDto) {
