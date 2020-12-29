@@ -1,25 +1,30 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AccesOnTemplateComponent } from './acces-on-template.component';
+import {AccesOnTemplateComponent} from './acces-on-template.component';
 
 describe('AccesOnTemplateComponent', () => {
-  let component: AccesOnTemplateComponent;
-  let fixture: ComponentFixture<AccesOnTemplateComponent>;
+    let component: AccesOnTemplateComponent;
+    let fixture: ComponentFixture<AccesOnTemplateComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ AccesOnTemplateComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [AccesOnTemplateComponent]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AccesOnTemplateComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(AccesOnTemplateComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
+
+    it('should focusOnInput set focus on element',  () => {
+        component.focusOnInput();
+        expect(component.inputRef.nativeElement).toEqual(document.activeElement);
+    });
 });

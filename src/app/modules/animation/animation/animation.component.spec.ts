@@ -24,4 +24,15 @@ describe('AnimationComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
+    it('should toggle change state',  () => {
+        const state = component.state;
+        component.toggle();
+        expect(component.state !== state).toBeTruthy();
+    });
+
+    it('should toggleMiddle change state middle',  () => {
+        component.toggleMiddle();
+        expect(component.state).toContain('middle');
+    });
 });

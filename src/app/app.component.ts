@@ -24,6 +24,12 @@ export class AppComponent {
             ]
         },
         {
+            title: 'DOM-Node',
+            linkArr: [
+                {link: '/dom', title: 'DOM'},
+            ]
+        },
+        {
             title: 'Animation',
             linkArr: [
                 {link: '/animation', title: 'Animation'},

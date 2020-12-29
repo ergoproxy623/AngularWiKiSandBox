@@ -21,6 +21,13 @@ const routes: Routes = [
        canActivateChild: [AuthGuard]
     },
     {
+        path: 'dom',
+        loadChildren: () =>
+            import('./modules/dom-node/dom-node.module').then(
+                (m) => m.DomNodeModule),
+        canActivateChild: [AuthGuard]
+    },
+    {
         path: 'rxjs',
         loadChildren: () =>
             import('./modules/rx-js/rx-js.module').then(
