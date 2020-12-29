@@ -1,0 +1,4 @@
+<button class="btn" (click)="toggle()"> End </button>
+<button class="btn" (click)="toggleMiddle()"> Middle</button>
+<button class="btn" (click)="visible = !visible"> Hide /Show</button>
+<div class="box w-25" *ngIf="visible" [@box]="state"></div>

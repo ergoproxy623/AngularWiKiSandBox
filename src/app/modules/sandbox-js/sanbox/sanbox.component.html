@@ -1,0 +1,13 @@
+<div class="wrap row">
+    <div class="col-12">
+        <ngx-monaco-editor [options]="editorOptions" class="my-code-editor" [(ngModel)]="code"></ngx-monaco-editor>
+    </div>
+    <div  class="col-4" *ngIf="show" [hidden]="true">
+        <iframe  id="frameID" width="100%" height="100%" frameborder="0"   scrolling="no" ></iframe>
+    </div>
+
+</div>
+
+<div class="input-group mt-1">
+    <button type="button" (click)="runCode()" class="btn btn-outline-primary ml-1 ">Run</button>
+</div>

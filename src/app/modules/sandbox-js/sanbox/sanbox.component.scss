@@ -1,0 +1,11 @@
+.wrap {
+    height: calc(100vh - 100px);
+    overflow: auto;
+    .my-code-editor {
+        height: 100%;
+        .editor-container {
+            height: 100% !important;
+        }
+    }
+
+}

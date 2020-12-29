@@ -1,0 +1,8 @@
+@import './src/app/styles/variables';
+
+.wrap {
+    background-color: $body-bg;
+    height: calc(100% - 58px);
+    overflow: auto;
+    padding: 15px;
+}
