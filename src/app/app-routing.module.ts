@@ -28,6 +28,13 @@ const routes: Routes = [
         canActivateChild: [AuthGuard]
     },
     {
+        path: 'zone',
+        loadChildren: () =>
+            import('./modules/zone/zone.module').then(
+                (m) => m.ZoneModule),
+        canActivateChild: [AuthGuard]
+    },
+    {
         path: 'rxjs',
         loadChildren: () =>
             import('./modules/rx-js/rx-js.module').then(

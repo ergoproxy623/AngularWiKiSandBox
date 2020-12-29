@@ -48,6 +48,12 @@ export class AppComponent {
             ]
         },
         {
+            title: 'Zone',
+            linkArr: [
+                {link: '/zone', title: 'Zone'},
+            ]
+        },
+        {
             title: 'S.O.L.I.D',
             linkArr: [
                 {link: '/solid', title: 'SRP'},
