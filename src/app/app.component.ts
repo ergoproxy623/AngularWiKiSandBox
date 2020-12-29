@@ -41,6 +41,10 @@ export class AppComponent {
                 {link: '/patterns', title: 'Patterns'},
                 {link: '/patterns/factory', title: 'Factory'},
                 {link: '/patterns/prototype', title: 'Proto'},
+                {link: '/patterns/singleton', title: 'Singleton'},
+                {link: '/patterns/adapter', title: 'Adapter'},
+                {link: '/patterns/decorator', title: 'Decorator'},
+                {link: '/patterns/facade', title: 'Facade'},
             ]
         },
         {
