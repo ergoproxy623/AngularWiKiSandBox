@@ -1,4 +1,3 @@
-<p>hooks works!</p>
 <button class="btn waves-effect waves-light"
         name="action"
         (click)="addCards()">Add
@@ -12,6 +11,5 @@
             <smal *ngIf="card.cardBody.length > 10; else short">Long</smal>
             <ng-template #short>Short</ng-template>
         </div>
-
     </app-card-item>
 </div>

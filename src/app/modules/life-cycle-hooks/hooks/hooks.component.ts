@@ -12,24 +12,28 @@ import {ICard} from '../../../interfaces/card-interface/card';
 import {Card} from '../../../classDTO/cardDTO/cardDTO';
 
 @Component({
-  selector: 'app-hooks',
-  templateUrl: './hooks.component.html',
-  styleUrls: ['./hooks.component.scss']
+    selector: 'app-hooks',
+    templateUrl: './hooks.component.html',
+    styleUrls: ['./hooks.component.scss']
 })
 export class HooksComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked, OnChanges {
     cards: ICard[] = null;
     @ContentChild('genTemplate', {static: true}) genTemplate: ElementRef;
-  constructor() { }
+
+    constructor() {
+    }
 
     ngOnChanges(changes: SimpleChanges): void {
         console.log(changes);
     }
 
     ngOnInit(): void {
-        this.cards = [{ title: 'Test Title',
+        this.cards = [{
+            title: 'Test Title',
             cardBody: 'Lorem 100',
             linkOne: 'url',
-            linkTwo: 'url'}];
+            linkTwo: 'url'
+        }];
     }
 
     addCards(): any {
@@ -40,14 +44,14 @@ export class HooksComponent implements OnInit, AfterViewInit, OnDestroy, AfterVi
     }
 
 
-  ngAfterViewChecked(): void {
-  }
+    ngAfterViewChecked(): void {
+    }
 
-  ngAfterViewInit(): void {
-  }
+    ngAfterViewInit(): void {
+    }
 
-  ngOnDestroy(): void {
-  }
+    ngOnDestroy(): void {
+    }
 
 
 }
