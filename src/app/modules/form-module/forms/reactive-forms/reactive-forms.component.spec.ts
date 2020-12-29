@@ -1,12 +1,10 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ReactiveFormsComponent} from './reactive-forms.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {FireServiceService} from '../../../../services/fire-service/fire-service.service';
-import {AngularFireModule} from "@angular/fire";
-import {environment} from "../../../../../environments/environment";
-import {AngularFireDatabaseModule} from "@angular/fire/database";
-import {AngularFirestoreModule} from "@angular/fire/firestore";
+import {CounterComponent} from '../counter/counter.component';
+import {BehaviorSubject} from 'rxjs';
 
 describe('ReactiveFormsComponent', () => {
     let component: ReactiveFormsComponent;
@@ -14,12 +12,12 @@ describe('ReactiveFormsComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ReactiveFormsComponent],
-            imports: [FormsModule, ReactiveFormsModule,
-                AngularFireModule.initializeApp(environment.firebase),
-                AngularFireDatabaseModule,
-                AngularFirestoreModule],
-            providers: [FireServiceService]
+            declarations: [ReactiveFormsComponent, CounterComponent],
+            providers: [FormBuilder, {
+                provide: FireServiceService, useFactory: () => {
+                    return {items: new BehaviorSubject([{name: 'John', age: 10}])};
+                }
+            }]
         })
             .compileComponents();
     }));

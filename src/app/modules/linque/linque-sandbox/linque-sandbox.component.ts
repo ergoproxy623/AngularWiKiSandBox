@@ -24,7 +24,7 @@ export class LinqueSandboxComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.store.dispatch(new GetUsersGit());
+        this.store.dispatch(new GetUsersGit('ergoproxy623'));
         this.linqRange();
 
 

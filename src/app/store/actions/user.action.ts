@@ -23,6 +23,8 @@ export class GetUsersSuccess implements Action {
 
 export class GetUsersGit implements Action {
     public readonly type = EUserAction.GetUsersGit;
+    constructor(public payload: string) {
+    }
 }
 
 export class GetUsersGitSuccess implements Action {
