@@ -1,4 +1,5 @@
 import {Component, NgZone, OnInit} from '@angular/core';
+import {CdkDragDrop, moveItemInArray} from "@angular/cdk/drag-drop";
 
 @Component({
     selector: 'app-zone-test',
@@ -15,18 +16,20 @@ export class ZoneTestComponent implements OnInit {
 
 
     mouseUp(event) {
+        console.log(event);
         this.zone.run(() => {
-            this.updateBox( event.clientX + 100, event.clientY + 100);
+            this.updateBox( event.clientX, event.clientY);
         });
         window.document.removeEventListener('mousemove', this.mouseMove);
     }
 
     updateBox(x, y) {
-        this.div.setAttribute('style', `top: ${x}px; left: ${y}px`);
+        this.div.setAttribute('style', `transform: translate3d(${x}px, ${y}px, 0px);`);
         this.div = null;
     }
 
     mouseDown(event) {
+        console.log(event);
         this.div = event.target;
         console.log(this.div);
         this.zone.runOutsideAngular(() => {
@@ -36,7 +39,10 @@ export class ZoneTestComponent implements OnInit {
 
     mouseMove(event) {
         event.preventDefault();
-        this.div.setAttribute('style', `top: ${event.clientY + 100}px`);
-        this.div.setAttribute('y', event.clientX + 100 + 'px');
+        this.div.setAttribute('style', `transform: translate3d(${event.clientX}px, ${event.clientY}px, 0px`);
+    }
+
+    drop(event: CdkDragDrop<string[]>) {
+        // moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
     }
 }
