@@ -21,6 +21,13 @@ const routes: Routes = [
        canActivateChild: [AuthGuard]
     },
     {
+        path: 'snippets',
+        loadChildren: () =>
+            import('./modules/code-snippets/code-snippets.module').then(
+                (m) => m.CodeSnippetsModule),
+        canActivateChild: [AuthGuard]
+    },
+    {
         path: 'dom',
         loadChildren: () =>
             import('./modules/dom-node/dom-node.module').then(

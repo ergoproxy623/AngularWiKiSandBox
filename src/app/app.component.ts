@@ -24,6 +24,12 @@ export class AppComponent {
             ]
         },
         {
+            title: 'Snippets',
+            linkArr: [
+                {link: '/snippets', title: 'Snippets'},
+            ]
+        },
+        {
             title: 'DOM-Node',
             linkArr: [
                 {link: '/dom', title: 'DOM'},
