@@ -30,6 +30,12 @@ export class AppComponent {
             ]
         },
         {
+            title: 'Charts',
+            linkArr: [
+                {link: '/charts', title: 'Charts'},
+            ]
+        },
+        {
             title: 'DOM-Node',
             linkArr: [
                 {link: '/dom', title: 'DOM'},

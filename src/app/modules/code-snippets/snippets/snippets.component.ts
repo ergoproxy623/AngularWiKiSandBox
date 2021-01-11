@@ -26,6 +26,7 @@ export class SnippetsComponent implements OnInit {
         this.changeChart();
         this.lineBreak();
         this.defaultValue();
+        this.replaceAll();
     }
 
     mathFloor() {
@@ -88,7 +89,7 @@ export class SnippetsComponent implements OnInit {
         throw new Error('Error');
     }
 
-    showParamsAndError(param: any = throwError()) {
+    showParamsAndError(param: any = throwError('')) {
         console.log(param);
     }
 
@@ -111,5 +112,12 @@ export class SnippetsComponent implements OnInit {
         console.log(result);
         n10 = undefined;
         console.log(result);
+    }
+
+    replaceAll() {
+        const str = '+1+1+1+1';
+        console.log(str.replace(/\+/g, '2'));
+        // console.log(str.replaceAll('+', '2'));
+        console.log(String.prototype);
     }
 }

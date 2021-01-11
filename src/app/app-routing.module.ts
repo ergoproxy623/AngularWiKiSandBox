@@ -28,6 +28,13 @@ const routes: Routes = [
         canActivateChild: [AuthGuard]
     },
     {
+        path: 'charts',
+        loadChildren: () =>
+            import('./modules/charts/charts.module').then(
+                (m) => m.ChartsModule),
+        canActivateChild: [AuthGuard]
+    },
+    {
         path: 'dom',
         loadChildren: () =>
             import('./modules/dom-node/dom-node.module').then(
