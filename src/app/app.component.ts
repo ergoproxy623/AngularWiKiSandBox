@@ -36,6 +36,18 @@ export class AppComponent {
             ]
         },
         {
+            title: 'Destructuring',
+            linkArr: [
+                {link: '/destructuring', title: 'Destructuring'},
+            ]
+        },
+        {
+            title: 'Arrow Func',
+            linkArr: [
+                {link: '/arrow-func', title: 'Arrow Func'},
+            ]
+        },
+        {
             title: 'DOM-Node',
             linkArr: [
                 {link: '/dom', title: 'DOM'},

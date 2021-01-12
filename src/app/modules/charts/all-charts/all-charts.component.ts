@@ -20,7 +20,16 @@ export class AllChartsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-      this.initChartData([{date: new Date(), data: 120}, {date: new Date(), data: 22}, {date: new Date(), data: 3},  {date: new Date(), data: 3},  {date: new Date(), data: 3}], 'data');
+      this.initChartData(
+          [
+              {date: new Date(), data: 120},
+              {date: new Date(), data: 22},
+              {date: new Date(), data: 3},
+              {date: new Date(), data: 3},
+              {date: new Date(), data: 3}
+              ],
+          'data'
+      );
   }
 
 
