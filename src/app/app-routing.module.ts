@@ -21,6 +21,48 @@ const routes: Routes = [
        canActivateChild: [AuthGuard]
     },
     {
+        path: 'snippets',
+        loadChildren: () =>
+            import('./modules/code-snippets/code-snippets.module').then(
+                (m) => m.CodeSnippetsModule),
+        canActivateChild: [AuthGuard]
+    },
+    {
+        path: 'charts',
+        loadChildren: () =>
+            import('./modules/charts/charts.module').then(
+                (m) => m.ChartsModule),
+        canActivateChild: [AuthGuard]
+    },
+    {
+        path: 'destructuring',
+        loadChildren: () =>
+            import('./modules/destructuring/destructuring.module').then(
+                (m) => m.DestructuringModule),
+        canActivateChild: [AuthGuard]
+    },
+    {
+        path: 'arrow-func',
+        loadChildren: () =>
+            import('./modules/arrow-func/arrow-func.module').then(
+                (m) => m.ArrowFuncModule),
+        canActivateChild: [AuthGuard]
+    },
+    {
+        path: 'dom',
+        loadChildren: () =>
+            import('./modules/dom-node/dom-node.module').then(
+                (m) => m.DomNodeModule),
+        canActivateChild: [AuthGuard]
+    },
+    {
+        path: 'zone',
+        loadChildren: () =>
+            import('./modules/zone/zone.module').then(
+                (m) => m.ZoneModule),
+        canActivateChild: [AuthGuard]
+    },
+    {
         path: 'rxjs',
         loadChildren: () =>
             import('./modules/rx-js/rx-js.module').then(

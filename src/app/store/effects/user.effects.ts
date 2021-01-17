@@ -51,9 +51,11 @@ export class UserEffects {
     @Effect()
     getUsersGit$ = this.actions$.pipe(
         ofType<GetUsersGit>(EUserAction.GetUsersGit),
-        mergeMap( () => this.gitService.getGithubUsers('ergo').pipe(
+        map( action => action.payload),
+        mergeMap( (name) => this.gitService.getGithubUsers(name).pipe(
             map( (users) => new GetUsersGitSuccess(users.items))
         ) )
     );
 }
+
 

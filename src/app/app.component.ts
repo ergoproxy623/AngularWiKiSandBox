@@ -24,6 +24,36 @@ export class AppComponent {
             ]
         },
         {
+            title: 'Snippets',
+            linkArr: [
+                {link: '/snippets', title: 'Snippets'},
+            ]
+        },
+        {
+            title: 'Charts',
+            linkArr: [
+                {link: '/charts', title: 'Charts'},
+            ]
+        },
+        {
+            title: 'Destructuring',
+            linkArr: [
+                {link: '/destructuring', title: 'Destructuring'},
+            ]
+        },
+        {
+            title: 'Arrow Func',
+            linkArr: [
+                {link: '/arrow-func', title: 'Arrow Func'},
+            ]
+        },
+        {
+            title: 'DOM-Node',
+            linkArr: [
+                {link: '/dom', title: 'DOM'},
+            ]
+        },
+        {
             title: 'Animation',
             linkArr: [
                 {link: '/animation', title: 'Animation'},
@@ -35,6 +65,16 @@ export class AppComponent {
                 {link: '/patterns', title: 'Patterns'},
                 {link: '/patterns/factory', title: 'Factory'},
                 {link: '/patterns/prototype', title: 'Proto'},
+                {link: '/patterns/singleton', title: 'Singleton'},
+                {link: '/patterns/adapter', title: 'Adapter'},
+                {link: '/patterns/decorator', title: 'Decorator'},
+                {link: '/patterns/facade', title: 'Facade'},
+            ]
+        },
+        {
+            title: 'Zone',
+            linkArr: [
+                {link: '/zone', title: 'Zone'},
             ]
         },
         {

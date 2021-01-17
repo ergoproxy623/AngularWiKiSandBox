@@ -24,7 +24,7 @@ export class LinqueSandboxComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.store.dispatch(new GetUsersGit());
+        this.store.dispatch(new GetUsersGit('ergoproxy623'));
         this.linqRange();
 
 
@@ -41,15 +41,20 @@ export class LinqueSandboxComponent implements OnInit {
     }
 
     ramda() {
-        const incomplete = R.filter(R.where({complete: false}));
-        const sortByDate = R.sortBy(R.prop('dueDate'));
-        const sortByDateDescend = R.compose(R.reverse, sortByDate);
-        const importantFields = R.project(['title', 'dueDate']);
-        const groupByUser = R.partition(R.prop('username'));
-        const activeByUser = R.compose(groupByUser, incomplete);
-        const topDataAllUsers = R.compose(R.mapObj(R.compose(importantFields,  R.take(5), sortByDateDescend)), activeByUser);
+        const roles = R.filter(R.prop('type'));
+        console.log(roles);
+        const sortId = R.sortBy(R.prop('id'));
+        console.log(sortId(this.testArr));
+        const sortByIdDescend = R.compose(R.reverse, sortId);
+        console.log(sortByIdDescend(this.testArr));
+        const importantFields = R.project(['login', 'id']);
+        console.log(importantFields(this.testArr));
+        const groupByUser = R.partition(R.prop('login'));
+        const activeByUser = R.compose(groupByUser, roles);
+        const topDataAllUsers = R.compose(R.map(R.compose(importantFields,  R.take(5), sortByIdDescend)), activeByUser);
         const results = topDataAllUsers(this.testArr);
-        const gloss = R.compose(importantFields, R.take(5), sortByDateDescend);
+        console.log(results);
+        // const gloss = R.compose(importantFields, R.take(5), sortByDateDescend);
     }
 
     linqLast() {
