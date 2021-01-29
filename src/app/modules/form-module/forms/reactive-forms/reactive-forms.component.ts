@@ -10,7 +10,7 @@ import {CustomValidators} from '../validators/custom.validators';
     styleUrls: ['./reactive-forms.component.scss']
 })
 export class ReactiveFormsComponent implements OnInit {
-    createUserForm: FormGroup;
+   public createUserForm: FormGroup;
 
     constructor(
         private fb: FormBuilder,
@@ -18,7 +18,7 @@ export class ReactiveFormsComponent implements OnInit {
     ) {
     }
 
-    ngOnInit(): void {
+   public ngOnInit(): void {
         this.initForm();
     }
 
@@ -37,6 +37,8 @@ export class ReactiveFormsComponent implements OnInit {
 
         this.createUserForm.valueChanges.subscribe(v => {
             console.log(v);
+            console.log(v.name.toLoverCase());
+            
         });
     }
 
@@ -75,8 +77,9 @@ export class ReactiveFormsComponent implements OnInit {
         this.createUserForm.get('address').get('country').enable();
     }
 
-    setUsername() {
+  public  setUsername() {
         this.createUserForm.get('name').setValue('Arthur');
+        this.createUserForm.get('Def').setValue('editted')
     }
 
     setAll() {
@@ -99,7 +102,7 @@ export class ReactiveFormsComponent implements OnInit {
         });
     }
 
-    mask(value) {
+    mask(value: string ) {
         if (value[1] == 'A') {
             return ['+', /^[a-zA-Z]+$/, /^[a-zA-Z]+$/];
         } else {

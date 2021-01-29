@@ -25,9 +25,8 @@ export class DestructuringComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
         this.objDestructure();
-        this.arrDestructure()
+        this.arrDestructure();
     }
 
     objDestructure() {
