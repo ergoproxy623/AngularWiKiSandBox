@@ -11,6 +11,7 @@ import {CustomValidators} from '../validators/custom.validators';
 })
 export class ReactiveFormsComponent implements OnInit {
    public createUserForm: FormGroup;
+   flagDisable = false;
 
     constructor(
         private fb: FormBuilder,
@@ -37,8 +38,7 @@ export class ReactiveFormsComponent implements OnInit {
 
         this.createUserForm.valueChanges.subscribe(v => {
             console.log(v);
-            console.log(v.name.toLoverCase());
-            
+            // console.log(v.name.toLoverCase());
         });
     }
 
@@ -78,8 +78,8 @@ export class ReactiveFormsComponent implements OnInit {
     }
 
   public  setUsername() {
+        this.flagDisable = !this.flagDisable
         this.createUserForm.get('name').setValue('Arthur');
-        this.createUserForm.get('Def').setValue('editted')
     }
 
     setAll() {

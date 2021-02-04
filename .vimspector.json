@@ -1,17 +1,12 @@
 {
-	"configuration": {
-		"run": {
-			"adapter": "vscode-node",
-			"configuration": {
-				"request": "launch",
-				"protocol": "auto",
-				"stopOnEntry": "true",
-				"console": "integratedTerminal",
-				"program": "${workspaceRoot}/simple.js",
-				"cwd": "${workspaceRoot}"
-			}
-		},
-
-		"foobar": {}
-	}
+  "configurations": {
+    "launch": {
+      "adapter": "chrome",
+      "configuration": {
+        "request": "launch",
+        "url": "http://localhost:4200/",
+        "webRoot": "${workspaceRoot}/www"
+      }
+    }
+  }
 }

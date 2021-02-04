@@ -7,6 +7,7 @@ import {AngularFireModule} from '@angular/fire';
 import {TextMaskModule} from 'angular2-text-mask';
 import {CounterComponent} from './forms/counter/counter.component';
 import {MatIconModule} from '@angular/material/icon';
+import {SharedModule} from "../../shared/shared.module";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {MatIconModule} from '@angular/material/icon';
         FormsRoutingModule,
         AngularFireModule,
         TextMaskModule,
-        MatIconModule
+        MatIconModule,
+        SharedModule,
     ]
 })
 export class FormsModule {

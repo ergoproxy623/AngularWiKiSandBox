@@ -26,8 +26,8 @@ import {ConfigEffects} from './store/effects/config.effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {MonacoEditorModule} from 'ngx-monaco-editor';
 import {ModalComponent} from './shared/base-elements/modal/modal.component';
-import {AngularFirestoreModule} from "@angular/fire/firestore";
-import {FireServiceService} from "./services/fire-service/fire-service.service";
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {FireServiceService} from './services/fire-service/fire-service.service';
 
 
 // tslint:disable-next-line:typedef

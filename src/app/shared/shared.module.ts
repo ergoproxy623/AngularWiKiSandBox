@@ -4,6 +4,7 @@ import {CardItemComponent} from './base-elements/card-item/card-item.component';
 import {FilterPipe} from '../modules/structure/pipes/filter.pipe';
 import {ModalComponent} from './base-elements/modal/modal.component';
 import {ResolveDirective} from '../directive/resolve.directive';
+import {DisableCOntrolDirective} from "../directive/disable-control.directive";
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import {ResolveDirective} from '../directive/resolve.directive';
         CardItemComponent,
         FilterPipe,
         ModalComponent,
-        ResolveDirective
+        ResolveDirective,
+        DisableCOntrolDirective,
     ],
     imports: [
         CommonModule,
@@ -19,7 +21,8 @@ import {ResolveDirective} from '../directive/resolve.directive';
     exports: [
         CardItemComponent,
         FilterPipe,
-        ResolveDirective
+        ResolveDirective,
+        DisableCOntrolDirective,
     ],
 })
 export class SharedModule {
