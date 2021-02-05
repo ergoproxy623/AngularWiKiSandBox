@@ -13,11 +13,11 @@
             </div>
 
             <div class="input-group mb-3" [formGroupName]="'address'">
-                <input type="text" [disabledControl]="true" class="form-control w-100 mazafacka"
+                <input type="text" [disabledControl]="flagDisable" class="form-control w-100 mb-2"
                         aria-label="Amount (to the nearest dollar)"
                         placeholder="Address street"
                         [formControlName]="'street'">
-                <input type="text" class="form-control w-100"
+                <input type="text" class="form-control w-100 mb-2"
                        [disabledControl]="flagDisable"
                         [placeholder]="'Address Country'"
                         aria-label="Amount (to the nearest dollar)"
@@ -93,3 +93,4 @@
 </div>
 
 
+<div class="not-axist" [innerHTML]="'<div></div>'" ></div>

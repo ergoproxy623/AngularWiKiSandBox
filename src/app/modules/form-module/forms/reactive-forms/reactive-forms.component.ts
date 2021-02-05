@@ -78,7 +78,7 @@ export class ReactiveFormsComponent implements OnInit {
     }
 
   public  setUsername() {
-        this.flagDisable = !this.flagDisable
+        this.flagDisable = !this.flagDisable;
         this.createUserForm.get('name').setValue('Arthur');
     }
 
