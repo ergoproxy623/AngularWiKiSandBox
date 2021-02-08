@@ -37,10 +37,19 @@ export class ReactiveFormsComponent implements OnInit {
         });
 
         this.createUserForm.valueChanges.subscribe(v => {
-            console.log(v);
-            // console.log(v.name.toLoverCase());
+            this.changeFormState();
         });
     }
+
+   changeFormState() {
+        switch (true) {
+            case this.createUserForm?.value?.name?.length > 0:
+                this.disableAll();
+                break;
+            default:
+                this.enableAll();
+        }
+   }
 
     createUser(): void {
         const newUser: UserDto = this.createUserForm.value;

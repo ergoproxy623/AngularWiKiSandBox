@@ -23,4 +23,8 @@ describe("CardItemComponent", () => {
     it("should creaet", () => {
         expect(component.card).toBeTruthy();
     });
+
+    it('should bee fack', () => {
+        expect(component.getResult()).toBeGreaterThan(1);
+    })
 });

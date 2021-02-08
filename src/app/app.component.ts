@@ -91,6 +91,7 @@ export class AppComponent {
             title: 'RX-JS',
             linkArr: [
                 {link: '/rxjs', title: 'RX-JS'},
+                {link: '/rxjs/rx-canvas', title: 'RX-Canvas'},
             ]
         },
         {

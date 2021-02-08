@@ -5,8 +5,8 @@
     </button>
 
     <div class="navbar-collapse collapse show" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item mr-1" *ngFor="let link of linkArr">
+        <ul class="navbar-nav mr-auto d-flex flex-wrap">
+            <li class="nav-item mr-1 mb-2" *ngFor="let link of linkArr">
                 <div ngbDropdown>
                     <button class="btn btn-outline-primary"
                             id="dropdownBasic1" ngbDropdownToggle>{{ link.title }}</button>
