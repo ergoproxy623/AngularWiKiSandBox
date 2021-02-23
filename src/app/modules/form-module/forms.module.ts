@@ -7,10 +7,17 @@ import {AngularFireModule} from '@angular/fire';
 import {TextMaskModule} from 'angular2-text-mask';
 import {CounterComponent} from './forms/counter/counter.component';
 import {MatIconModule} from '@angular/material/icon';
+import { BindStrimComponent } from './forms/bind-strim/bind-strim.component';
+import { ChildBindStrimComponent } from './forms/bind-strim/child-bind-strim/child-bind-strim.component';
 
 
 @NgModule({
-    declarations: [ReactiveFormsComponent, CounterComponent],
+    declarations: [
+        ReactiveFormsComponent,
+        CounterComponent,
+        BindStrimComponent,
+        ChildBindStrimComponent
+    ],
     imports: [
         CommonModule,
         ReactiveFormsModule,

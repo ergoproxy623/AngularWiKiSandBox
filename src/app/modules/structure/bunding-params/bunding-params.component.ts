@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ICard} from '../../../interfaces/card-interface/card';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-bunding-params',
@@ -8,7 +9,9 @@ import {ICard} from '../../../interfaces/card-interface/card';
 })
 export class BundingParamsComponent implements OnInit {
   cards: ICard[] = null;
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.cards = [{ title: 'Test Title',
@@ -17,4 +20,13 @@ export class BundingParamsComponent implements OnInit {
                    linkTwo: 'url'}];
   }
 
+
+  getParams() {
+    this.route.params.subscribe( params => {
+      console.log(params);
+      
+      
+    }  )
+
+  }
 }

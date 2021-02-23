@@ -12,6 +12,7 @@ export class AppComponent {
             title: 'Form',
             linkArr: [
                 {link: '/forms', title: 'Reactive Forms'},
+                {link: '/forms/bind-strim', title: 'Bind Strim'},
             ]
         },
         {
