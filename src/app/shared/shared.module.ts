@@ -6,28 +6,26 @@ import {ModalComponent} from "./base-elements/modal/modal.component";
 import {ResolveDirective} from "../directive/resolve.directive";
 import {DisableCOntrolDirective} from "../directive/disable-control.directive";
 import {TimeoutDirective} from "../directive/timeout.directive";
+import { BoldDirective } from "../directive/bold.directive";
 
 const Components = [
-    TimeoutDirective
+    CardItemComponent,
+    TimeoutDirective,
+    DisableCOntrolDirective,
+    ResolveDirective,
+    FilterPipe,
+    BoldDirective,
 ];
 
 @NgModule({
     declarations: [
-        CardItemComponent,
-        FilterPipe,
         ModalComponent,
-        ResolveDirective,
-        DisableCOntrolDirective,
         ...Components
     ],
     imports: [
         CommonModule,
     ],
     exports: [
-        CardItemComponent,
-        FilterPipe,
-        ResolveDirective,
-        DisableCOntrolDirective,
         ...Components
     ],
 })
