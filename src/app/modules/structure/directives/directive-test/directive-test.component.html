@@ -3,3 +3,12 @@
     <p *appStructure="false" appStyle [color]="'red'" [text]="'Work Fine'">directive-test not works!</p>
 </div>
 
+<div *timeout="2500">
+    <p>Меня увидят через 2500 мс!</p>
+</div>
+
+<ng-template [timeout]="10000">
+    <div>
+        <p>Меня увидят через 10000 мс!</p>
+    </div>
+</ng-template>
