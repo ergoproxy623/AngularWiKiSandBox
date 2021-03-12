@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HooksComponent } from './hooks/hooks.component';
 import {AppModule} from "../../app.module";
+import {SharedModule} from "../../shared/shared.module";
 
 
 
@@ -9,7 +10,8 @@ import {AppModule} from "../../app.module";
   declarations: [HooksComponent],
     imports: [
         CommonModule,
-        AppModule
+        AppModule,
+        SharedModule
     ]
 })
 export class LifeCycleHooksModule { }

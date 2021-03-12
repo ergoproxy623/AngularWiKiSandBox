@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ICard} from '../../../interfaces/card-interface/card';
+import {GitService} from 'src/app/services/git-api/git.service';
 
 @Component({
     selector: 'app-card-item',
@@ -7,13 +8,22 @@ import {ICard} from '../../../interfaces/card-interface/card';
     styleUrls: ['./card-item.component.scss']
 })
 export class CardItemComponent implements OnInit {
-    @Input() card: ICard;
+    @Input() public card: ICard;
 
-    constructor() {
+    constructor(private userService: GitService) {
     }
 
-    ngOnInit(): void {
+ public ngOnInit(): void {
         console.log(this.card);
+        console.log(this.userService.url);
+        console.log(this.userService.url);
+        console.log(this.userService.url);
+        this.getResult();
+    }
+
+
+    getResult() {
+        return 123;
     }
 
 }
