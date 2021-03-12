@@ -40,6 +40,7 @@ export class LinqueSandboxComponent implements OnInit {
             console.log(this.testArr);
             this.linqLast();
             this.ramda();
+            this.ramdaDrop();
         });
     }
 
@@ -65,6 +66,12 @@ export class LinqueSandboxComponent implements OnInit {
 
     linqLast() {
         console.log(E.from(this.testArr).last());
+    }
+
+    ramdaDrop() {
+        console.log(this.testArr);
+        
+        console.log(R.drop(1, this.testArr))
     }
 
     linqRange() {
