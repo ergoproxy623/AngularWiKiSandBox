@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, TemplateRef } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FireServiceService} from '../../../../services/fire-service/fire-service.service';
 import {UserDto} from '../../../../classDTO/userDto/userDto';
@@ -10,7 +10,8 @@ import {CustomValidators} from '../validators/custom.validators';
     styleUrls: ['./reactive-forms.component.scss']
 })
 export class ReactiveFormsComponent implements OnInit {
-   public createUserForm: FormGroup;
+    @ViewChild('setAddress') setAddressElement: ElementRef;
+    public createUserForm: FormGroup;
    flagDisable = false;
 
     constructor(
@@ -41,14 +42,25 @@ export class ReactiveFormsComponent implements OnInit {
         });
     }
 
+    ngAfterViewInit(): void {
+
+    }
+
+    dispatchFake() {
+        const click = new MouseEvent('click');
+        const keyEvent = new KeyboardEvent('keyup')
+        const event = new Event('click')
+        this.setAddressElement.nativeElement.dispatchEvent(event);
+    }
+
    changeFormState() {
-        switch (true) {
-            case this.createUserForm?.value?.name?.length > 0:
-                this.disableAll();
-                break;
-            default:
-                this.enableAll();
-        }
+        // switch (true) {
+        //     case this.createUserForm?.value?.name?.length > 0:
+        //         this.disableAll();
+        //         break;
+        //     default:
+        //         this.enableAll();
+        // }
    }
 
     createUser(): void {
@@ -93,12 +105,14 @@ export class ReactiveFormsComponent implements OnInit {
 
     setAll() {
         this.createUserForm.patchValue({
-            name: 123123,
-            age: 32,
+            name: 1,
+            age: 1,
+            email: "1@1.com",
             address: {
-                street: '123 str',
-                country: 'Antarktida',
-            }
+                street: 'Str',
+                country: "Country",
+                counter: 3,
+            },
         });
     }
 

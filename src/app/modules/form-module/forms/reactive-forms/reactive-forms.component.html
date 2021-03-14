@@ -79,13 +79,17 @@
                         (click)="setAll()">
                     Set All
                 </button>
-                <button type="button" class="btn btn-outline-light m-3"
+                <button #setAddress type="button" class="btn btn-outline-light m-3"
                         (click)="setAddress()">
                     Set Address Group
                 </button>
                 <button type="button" class="btn btn-outline-light m-3"
                         (click)="addAuto()">
                     Add new Auto
+                </button>
+                <button type="button" class="btn btn-outline-light m-3"
+                (click)="dispatchFake()">
+                   Dispatch Fake
                 </button>
             </div>
         </form>
