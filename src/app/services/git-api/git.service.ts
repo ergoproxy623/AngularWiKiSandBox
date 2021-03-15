@@ -17,4 +17,9 @@ export class GitService {
   getGithubUsers(username): Observable<any> {
       return this.http.get(this.url + username);
   }
+
+  async getGithubUsersToPromise(username): Promise<any> {
+    const response = await this.http.get(this.url + username).toPromise();
+    return  response;
+  }
 }
