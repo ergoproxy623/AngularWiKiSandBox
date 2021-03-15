@@ -14,25 +14,29 @@ export class AsyncAwaitComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.getGit1();
-        this.getGit2();
-        this.getGit3();
+      this.getData();
+    }
+
+   async getData() {
+       await this.getGit1();
+       await this.getGit2();
+       await this.getGit3();
     }
 
     async getGit1() {
         const response = await this.getService.getGithubUsersToPromise("ergo");
-        console.log(response);
+        console.log(1, response);
     }
 
     async getGit2() {
         const response = await this.getService.getGithubUsersToPromise("ergoproxy623");
-        console.log(response);
+        console.log(2, response);
     }
 
 
     async getGit3() {
         const response = await this.getService.getGithubUsersToPromise("sun11");
-        console.log(response);
+        console.log(3, response);
     }
 
 }
