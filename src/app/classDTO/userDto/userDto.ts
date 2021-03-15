@@ -1,4 +1,4 @@
-import {AddressDto, IAddressDto} from '../addressDto/addressDto';
+import { AddressDto, IAddressDto } from "../addressDto/addressDto";
 
 export interface IUserDto {
     name: string;

@@ -14,13 +14,13 @@ export class AsyncAwaitComponent implements OnInit {
     }
 
     ngOnInit(): void {
-      this.getData();
+        this.getData();
     }
 
-   async getData() {
-       await this.getGit1();
-       await this.getGit2();
-       await this.getGit3();
+    async getData() {
+        await this.getGit1();
+        await this.getGit2();
+        await this.getGit3();
     }
 
     async getGit1() {

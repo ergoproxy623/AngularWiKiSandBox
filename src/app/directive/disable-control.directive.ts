@@ -1,14 +1,14 @@
-import {Directive, Input} from '@angular/core';
-import {NgControl} from '@angular/forms';
+import { Directive, Input, OnInit } from "@angular/core";
+import {NgControl} from "@angular/forms";
 
 @Directive({
     // tslint:disable-next-line:directive-selector
-  selector: '([formControlName], [formControl])[disabledControl]',
+  selector: "([formControlName], [formControl])[disabledControl]",
 })
-export class DisableCOntrolDirective {
+export class DisableControlDirective implements OnInit{
 
     @Input() set disabledControl(state: boolean) {
-        const action = state ? 'disable' : 'enable';
+        const action = state ? "disable" : "enable";
         if (this.ngControl?.control) {
             this.ngControl.control[action]();
         }

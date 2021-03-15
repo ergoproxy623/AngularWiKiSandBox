@@ -4,14 +4,14 @@ import {CardItemComponent} from "./base-elements/card-item/card-item.component";
 import {FilterPipe} from "../modules/structure/pipes/filter.pipe";
 import {ModalComponent} from "./base-elements/modal/modal.component";
 import {ResolveDirective} from "../directive/resolve.directive";
-import {DisableCOntrolDirective} from "../directive/disable-control.directive";
+import {DisableControlDirective} from "../directive/disable-control.directive";
 import {TimeoutDirective} from "../directive/timeout.directive";
 import { BoldDirective } from "../directive/bold.directive";
 
 const Components = [
     CardItemComponent,
     TimeoutDirective,
-    DisableCOntrolDirective,
+    DisableControlDirective,
     ResolveDirective,
     FilterPipe,
     BoldDirective,

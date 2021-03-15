@@ -6,7 +6,7 @@ export class Singleton {
 
     constructor() {
         if (Singleton.instance) {
-            throw new Error('Instantiation failed: use Singleton.getInstance() instead of new.');
+            throw new Error("Instantiation failed: use Singleton.getInstance() instead of new.");
         }
     }
 
