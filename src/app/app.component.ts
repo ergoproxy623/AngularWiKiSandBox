@@ -22,6 +22,12 @@ export class AppComponent {
             ]
         },
         {
+            title: "Punto",
+            linkArr: [
+                { link: "/punto", title: "PuntoJs" },
+            ]
+        },
+        {
             title: "Structure",
             linkArr: [
                 { link: "/structure", title: "Structure" },
