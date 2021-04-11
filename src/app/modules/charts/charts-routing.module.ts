@@ -1,9 +1,9 @@
-import {RouterModule, Routes} from '@angular/router';
-import {AllChartsComponent} from './all-charts/all-charts.component';
-import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from "@angular/router";
+import {AllChartsComponent} from "./all-charts/all-charts.component";
+import {NgModule} from "@angular/core";
 
 const routes: Routes = [
-    { path: '', component: AllChartsComponent }
+    { path: "", component: AllChartsComponent }
 ];
 
 @NgModule({

@@ -1,19 +1,29 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { ICard } from "../../../interfaces/card-interface/card";
+import {Component, Input, OnInit} from '@angular/core';
+import {ICard} from '../../../interfaces/card-interface/card';
+import {GitService} from 'src/app/services/git-api/git.service';
 
 @Component({
-    selector: "app-card-item",
-    templateUrl: "./card-item.component.html",
-    styleUrls: ["./card-item.component.scss"],
+    selector: 'app-card-item',
+    templateUrl: './card-item.component.html',
+    styleUrls: ['./card-item.component.scss']
 })
 export class CardItemComponent implements OnInit {
-    @Input() card: ICard;
+    @Input() public card: ICard;
 
-    constructor() {
-        console.log(this.card);
+    constructor(private userService: GitService) {
     }
 
-    ngOnInit(): void {
+ public ngOnInit(): void {
         console.log(this.card);
+        console.log(this.userService.url);
+        console.log(this.userService.url);
+        console.log(this.userService.url);
+        this.getResult();
     }
+
+
+    getResult() {
+        return 123;
+    }
+
 }

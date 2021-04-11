@@ -13,11 +13,12 @@
             </div>
 
             <div class="input-group mb-3" [formGroupName]="'address'">
-                <input type="text" class="form-control w-100"
+                <input type="text" [disabledControl]="flagDisable" class="form-control w-100 mb-2"
                         aria-label="Amount (to the nearest dollar)"
                         placeholder="Address street"
                         [formControlName]="'street'">
-                <input type="text" class="form-control w-100"
+                <input type="text" class="form-control w-100 mb-2"
+                       [disabledControl]="flagDisable"
                         [placeholder]="'Address Country'"
                         aria-label="Amount (to the nearest dollar)"
                         [formControlName]="'country'">
@@ -66,7 +67,7 @@
                         (click)="disableCountry()">
                     Disable Country
                 </button>
-                <button type="button" class="btn btn-outline-dark m-3"
+                <button type="button" class="btn test-find-class btn-outline-dark m-3"
                         (click)="enableCountry()">
                     Enable Country
                 </button>
@@ -78,7 +79,7 @@
                         (click)="setAll()">
                     Set All
                 </button>
-                <button type="button" class="btn btn-outline-light m-3"
+                <button #setAddress type="button" class="btn btn-outline-light m-3"
                         (click)="setAddress()">
                     Set Address Group
                 </button>
@@ -86,9 +87,14 @@
                         (click)="addAuto()">
                     Add new Auto
                 </button>
+                <button type="button" class="btn btn-outline-light m-3"
+                (click)="dispatchFake()">
+                   Dispatch Fake
+                </button>
             </div>
         </form>
     </div>
 </div>
 
 
+<div class="not-axist" [innerHTML]="'<div></div>'" ></div>

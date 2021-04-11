@@ -1,0 +1,5 @@
+<p>Big Form</p>
+<form [formGroup]="bigForm">
+    <app-chield-form-group [formControlName]="'childGroup'"></app-chield-form-group>
+</form>
+<pre> {{ bigForm.value | json }} </pre>

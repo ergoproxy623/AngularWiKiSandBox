@@ -1,12 +1,11 @@
-import { BindStrimComponent } from './forms/bind-strim/bind-strim.component';
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {ReactiveFormsComponent} from './forms/reactive-forms/reactive-forms.component';
+import {ValueAccesorrFormGroupComponent} from './forms/value-accesorr-form-group/value-accesorr-form-group.component';
 
 const routes: Routes = [
     { path: '', component: ReactiveFormsComponent},
-    { path: 'bind-strim', component: BindStrimComponent},
-
+    { path: 'value-accessor', component: ValueAccesorrFormGroupComponent},
 ];
 
 @NgModule({

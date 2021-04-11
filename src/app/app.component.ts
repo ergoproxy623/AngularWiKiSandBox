@@ -1,111 +1,124 @@
-import {Component} from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    selector: "app-root",
+    templateUrl: "./app.component.html",
+    styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-    title = 'project-for-tests';
+    title = "project-for-tests";
     linkArr: any[] = [
         {
-            title: 'Form',
+            title: "Form",
             linkArr: [
-                {link: '/forms', title: 'Reactive Forms'},
-                {link: '/forms/bind-strim', title: 'Bind Strim'},
+                { link: "/forms", title: "Reactive Forms" },
+                { link: "/forms/value-accessor", title: "Value Accessor Group" }
             ]
         },
         {
-            title: 'Structure',
+            title: "Async",
             linkArr: [
-                {link: '/structure', title: 'Structure'},
-                {link: '/structure/directives', title: 'Directives'},
-                {link: '/structure/pipes', title: 'Pipes'},
-                {link: '/structure/bunding', title: 'Bunding'},
+                { link: "/async", title: "Async Await" },
             ]
         },
         {
-            title: 'Snippets',
+            title: "Punto",
             linkArr: [
-                {link: '/snippets', title: 'Snippets'},
+                { link: "/punto", title: "PuntoJs" },
             ]
         },
         {
-            title: 'Charts',
+            title: "Structure",
             linkArr: [
-                {link: '/charts', title: 'Charts'},
+                { link: "/structure", title: "Structure" },
+                { link: "/structure/directives", title: "Directives" },
+                { link: "/structure/pipes", title: "Pipes" },
+                { link: "/structure/bunding", title: "Bunding" }
             ]
         },
         {
-            title: 'Destructuring',
+            title: "Snippets",
             linkArr: [
-                {link: '/destructuring', title: 'Destructuring'},
+                { link: "/snippets", title: "Snippets" }
             ]
         },
         {
-            title: 'Arrow Func',
+            title: "Charts",
             linkArr: [
-                {link: '/arrow-func', title: 'Arrow Func'},
+                { link: "/charts", title: "Charts" }
             ]
         },
         {
-            title: 'DOM-Node',
+            title: "Destructuring",
             linkArr: [
-                {link: '/dom', title: 'DOM'},
+                { link: "/destructuring", title: "Destructuring" }
             ]
         },
         {
-            title: 'Animation',
+            title: "Arrow Func",
             linkArr: [
-                {link: '/animation', title: 'Animation'},
+                { link: "/arrow-func", title: "Arrow Func" }
             ]
         },
         {
-            title: 'Patterns',
+            title: "DOM-Node",
             linkArr: [
-                {link: '/patterns', title: 'Patterns'},
-                {link: '/patterns/factory', title: 'Factory'},
-                {link: '/patterns/prototype', title: 'Proto'},
-                {link: '/patterns/singleton', title: 'Singleton'},
-                {link: '/patterns/adapter', title: 'Adapter'},
-                {link: '/patterns/decorator', title: 'Decorator'},
-                {link: '/patterns/facade', title: 'Facade'},
+                { link: "/dom", title: "DOM" }
             ]
         },
         {
-            title: 'Zone',
+            title: "Animation",
             linkArr: [
-                {link: '/zone', title: 'Zone'},
+                { link: "/animation", title: "Animation" }
             ]
         },
         {
-            title: 'S.O.L.I.D',
+            title: "Patterns",
             linkArr: [
-                {link: '/solid', title: 'SRP'},
-                {link: '/solid/o', title: 'Open-Close'},
-                {link: '/solid/l', title: 'Liscov Substitution'},
-                {link: '/solid/i', title: 'Interface segregation'},
-                {link: '/solid/d', title: 'Bunding'},
+                { link: "/patterns", title: "Patterns" },
+                { link: "/patterns/factory", title: "Factory" },
+                { link: "/patterns/prototype", title: "Proto" },
+                { link: "/patterns/singleton", title: "Singleton" },
+                { link: "/patterns/adapter", title: "Adapter" },
+                { link: "/patterns/decorator", title: "Decorator" },
+                { link: "/patterns/facade", title: "Facade" }
             ]
         },
         {
-            title: 'RX-JS',
+            title: "Zone",
             linkArr: [
-                {link: '/rxjs', title: 'RX-JS'},
+                { link: "/zone", title: "Zone" }
             ]
         },
         {
-            title: 'Sandbox',
+            title: "S.O.L.I.D",
             linkArr: [
-                {link: '/sandbox', title: 'Sandbox'},
+                { link: "/solid", title: "SRP" },
+                { link: "/solid/o", title: "Open-Close" },
+                { link: "/solid/l", title: "Liscov Substitution" },
+                { link: "/solid/i", title: "Interface segregation" },
+                { link: "/solid/d", title: "Bunding" }
             ]
         },
         {
-            title: 'Linq',
+            title: "RX-JS",
             linkArr: [
-                {link: '/linq', title: 'Linq'},
+                { link: "/rxjs", title: "RX-JS" },
+                { link: "/rxjs/rx-canvas", title: "RX-Canvas" }
             ]
         },
-        {link: '/sheduler', title: 'Sheduler', linkArr: []},
+        {
+            title: "Sandbox",
+            linkArr: [
+                { link: "/sandbox", title: "Sandbox" }
+            ]
+        },
+        {
+            title: "Linq",
+            linkArr: [
+                { link: "/linq", title: "Linq" }
+            ]
+        },
+        { link: "/sheduler", title: "Sheduler", linkArr: [] }
     ];
 }

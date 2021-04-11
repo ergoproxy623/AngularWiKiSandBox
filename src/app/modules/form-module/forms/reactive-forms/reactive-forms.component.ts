@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, TemplateRef } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FireServiceService} from '../../../../services/fire-service/fire-service.service';
 import {UserDto} from '../../../../classDTO/userDto/userDto';
@@ -10,7 +10,9 @@ import {CustomValidators} from '../validators/custom.validators';
     styleUrls: ['./reactive-forms.component.scss']
 })
 export class ReactiveFormsComponent implements OnInit {
-    createUserForm: FormGroup;
+    @ViewChild('setAddress') setAddressElement: ElementRef;
+    public createUserForm: FormGroup;
+   flagDisable = false;
 
     constructor(
         private fb: FormBuilder,
@@ -18,7 +20,7 @@ export class ReactiveFormsComponent implements OnInit {
     ) {
     }
 
-    ngOnInit(): void {
+   public ngOnInit(): void {
         this.initForm();
     }
 
@@ -36,9 +38,30 @@ export class ReactiveFormsComponent implements OnInit {
         });
 
         this.createUserForm.valueChanges.subscribe(v => {
-            console.log(v);
+            this.changeFormState();
         });
     }
+
+    ngAfterViewInit(): void {
+
+    }
+
+    dispatchFake() {
+        const click = new MouseEvent('click');
+        const keyEvent = new KeyboardEvent('keyup')
+        const event = new Event('click')
+        this.setAddressElement.nativeElement.dispatchEvent(event);
+    }
+
+   changeFormState() {
+        // switch (true) {
+        //     case this.createUserForm?.value?.name?.length > 0:
+        //         this.disableAll();
+        //         break;
+        //     default:
+        //         this.enableAll();
+        // }
+   }
 
     createUser(): void {
         const newUser: UserDto = this.createUserForm.value;
@@ -75,18 +98,21 @@ export class ReactiveFormsComponent implements OnInit {
         this.createUserForm.get('address').get('country').enable();
     }
 
-    setUsername() {
+  public  setUsername() {
+        this.flagDisable = !this.flagDisable;
         this.createUserForm.get('name').setValue('Arthur');
     }
 
     setAll() {
         this.createUserForm.patchValue({
-            name: 123123,
-            age: 32,
+            name: 1,
+            age: 1,
+            email: "1@1.com",
             address: {
-                street: '123 str',
-                country: 'Antarktida',
-            }
+                street: 'Str',
+                country: "Country",
+                counter: 3,
+            },
         });
     }
 
@@ -99,7 +125,7 @@ export class ReactiveFormsComponent implements OnInit {
         });
     }
 
-    mask(value) {
+    mask(value: string ) {
         if (value[1] == 'A') {
             return ['+', /^[a-zA-Z]+$/, /^[a-zA-Z]+$/];
         } else {
