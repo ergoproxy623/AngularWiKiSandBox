@@ -19,7 +19,7 @@ export class AsyncAwaitComponent implements OnInit {
 
     async getData() {
         await this.getGit1();
-        await this.getGit2();
+        // await this.getGit2();
         await this.getGit3();
     }
 
