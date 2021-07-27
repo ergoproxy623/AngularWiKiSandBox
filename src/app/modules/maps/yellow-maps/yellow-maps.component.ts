@@ -857,6 +857,9 @@ export class YellowMapsComponent implements OnInit {
             markers.addLayer(geoJsonLayer);
             map.addLayer(markers);
             map.fitBounds(markers.getBounds());
+            map.on('resize', (zoom) => {
+                console.log(zoom);
+            })
 
             console.log( map.getZoom());
             console.log( 40075016.686 * Math.abs(Math.cos(map.getCenter().lat * Math.PI/180)) / Math.pow(2, map.getZoom() + 8));
