@@ -7,6 +7,7 @@ import {ResolveDirective} from "../directive/resolve.directive";
 import {DisableControlDirective} from "../directive/disable-control.directive";
 import {TimeoutDirective} from "../directive/timeout.directive";
 import { BoldDirective } from "../directive/bold.directive";
+import { LiModule } from "@smartmaps/li-lib";
 
 const Components = [
     CardItemComponent,

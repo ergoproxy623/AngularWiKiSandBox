@@ -37,6 +37,12 @@ export class AppComponent {
             ]
         },
         {
+            title: "Maps",
+            linkArr: [
+                { link: "/maps", title: "Yellow Maps" },
+            ]
+        },
+        {
             title: "Snippets",
             linkArr: [
                 { link: "/snippets", title: "Snippets" }

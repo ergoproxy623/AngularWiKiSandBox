@@ -73,9 +73,9 @@ export const routerStateConfig = {
         AngularFirestoreModule,
         NgbModule,
     ],
-    providers: [INTERCEPTOR_PROVIDER, FireServiceService],
+    providers: [INTERCEPTOR_PROVIDER, FireServiceService, ],
     bootstrap: [AppComponent],
-    entryComponents: [ModalComponent]
+    entryComponents: [ModalComponent],
 })
 export class AppModule {
 }

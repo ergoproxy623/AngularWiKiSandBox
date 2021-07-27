@@ -12,8 +12,9 @@ export const environment = {
         storageBucket: "angular-sandbox-2c576.appspot.com",
         messagingSenderId: "977428369050",
         appId: "1:977428369050:web:f79f46826360d7a7911923",
-        measurementId: "G-K2PDK191GK"
+        measurementId: "G-K2PDK191GK",
     },
+    mapSettings: null,
 };
 /*
  * For easier debugging in development mode, you can import the following file

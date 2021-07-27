@@ -26,6 +26,12 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: "maps",
+        loadChildren: () => import("./modules/maps/maps.module").then(
+            (m) => m.MapsModule),
+        canActivate: [AuthGuard]
+    },
+    {
         path: "structure",
         loadChildren: () =>
             import("./modules/structure/structure.module").then(
