@@ -28,6 +28,12 @@ export class AppComponent {
             ]
         },
         {
+            title: "Decorators",
+            linkArr: [
+                { link: "/decorators", title: "Decorators" },
+            ]
+        },
+        {
             title: "Structure",
             linkArr: [
                 { link: "/structure", title: "Structure" },

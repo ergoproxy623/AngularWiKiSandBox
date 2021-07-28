@@ -20,6 +20,12 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: "decorators",
+        loadChildren: () => import("./modules/decorators/decorators.module").then(
+            (m) => m.DecoratorsModule),
+        canActivate: [AuthGuard]
+    },
+    {
         path: "punto",
         loadChildren: () => import("./modules/punto/punto.module").then(
             (m) => m.PuntoModule),

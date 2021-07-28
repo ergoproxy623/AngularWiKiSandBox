@@ -24,9 +24,6 @@ export class YellowMapsComponent implements OnInit {
             });
 
             const jsn = '{\n' +
-                '"type": "FeatureCollection",\n' +
-                '"name": "Bonn",\n' +
-                '"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },\n' +
                 '"features": [\n' +
                 '{ "type": "Feature", "properties": { "objekt": "1003-34" }, "geometry": { "type": "Point", "coordinates": [ 7.135994036000056, 50.710742065000034 ] } },\n' +
                 '{ "type": "Feature", "properties": { "objekt": "1061-28" }, "geometry": { "type": "Point", "coordinates": [ 7.097892171000069, 50.726412285000038 ] } },\n' +
@@ -849,7 +846,7 @@ export class YellowMapsComponent implements OnInit {
 
             const geoJsonLayer = ym.geoJson( JSON.parse(jsn) , {
                 onEachFeature(feature, layer) {
-                    layer.bindPopup("<p>Hello world!<br />feature.properties.objekt</p>", {className: 'class'  });
+                    layer.bindPopup(feature.properties.objekt);
                 }
             });
             // форычем добавляет попап
