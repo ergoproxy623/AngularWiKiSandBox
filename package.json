@@ -23,7 +23,7 @@
     "@angular/platform-browser": "~11.2.5",
     "@angular/platform-browser-dynamic": "~11.2.5",
     "@angular/router": "~11.2.5",
-    "angular-google-charts": "^1.1.6",
+    "angular-google-charts": "2.2.2",
     "ng2-google-charts": "^6.1.0",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "@ng-bootstrap/schematics": "^2.0.0-alpha.1",
