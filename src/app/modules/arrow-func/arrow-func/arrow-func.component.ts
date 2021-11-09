@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ArrowFuncComponent implements OnInit {
 
-    animals = ['deer', 'bear', 'panda'];
+    animals: string[] = ['deer', 'bear', 'panda'];
 
     constructor() {
     }
@@ -18,16 +18,16 @@ export class ArrowFuncComponent implements OnInit {
     }
 
 
-    forEachShow() {
+    forEachShow(): void {
        this.animals.forEach( a => {
            console.log(a);
        });
     }
 
-    curryingShow() {
-        function multiply(number1) {
+    curryingShow(): void {
+        function multiply(number1: number) {
             const pow = number1 ** number1;
-            return add => pow + add;
+            return (add: number) => pow + add;
         }
 
         const result = multiply(2)(4);

@@ -36,11 +36,11 @@ export class AnimationComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    toggle() {
+    toggle(): void {
         this.state = this.state === 'start' ? 'end' : 'start';
     }
 
-    toggleMiddle() {
+    toggleMiddle(): void {
         this.state = 'middle';
     }
 }

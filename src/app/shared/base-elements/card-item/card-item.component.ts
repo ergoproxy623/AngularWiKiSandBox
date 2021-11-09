@@ -18,6 +18,8 @@ export class CardItemComponent implements OnInit {
         console.log(this.userService.url);
         console.log(this.userService.url);
         console.log(this.userService.url);
+
+        console.log(this.userService.url);
         this.getResult();
     }
 
