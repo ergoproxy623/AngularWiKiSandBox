@@ -30,6 +30,11 @@ export class DecoratorsSandboxComponent implements OnInit {
         return countObj.x + countObj.y;
     }
 
+
+    testFunc(): Test<number, boolean> {
+        return { value: 1, test: true }
+    }
+
     cachingDecorator(func) {
         const cache = new Map();
         return (x) => {
@@ -94,4 +99,9 @@ function debounce2(target, name, descriptor) {
 function readonly(target, property, descriptor) {
     descriptor.writable = false;
     return descriptor;
+}
+
+export interface Test<T, U> {
+    value: T,
+    test: U
 }
