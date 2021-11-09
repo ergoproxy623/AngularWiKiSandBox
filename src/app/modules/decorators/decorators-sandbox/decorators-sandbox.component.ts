@@ -22,8 +22,8 @@ export class DecoratorsSandboxComponent implements OnInit {
         console.log(slowAndCaching({x: 5, y: 5}));
         console.log(slowAndCaching({x: 6, y: 6}));
     }
-
-
+    @readonly
+    @debounce2
     slow(countObj: {x: number, y: number}) {
         // здесь могут быть ресурсоёмкие вычисления
         console.log(countObj.x + countObj.y);
@@ -49,4 +49,49 @@ export class DecoratorsSandboxComponent implements OnInit {
             return result;
         };
     }
+
+
+}
+
+function debounce(f, time: number) {
+  let waiting = false;
+
+  return () => {
+      if (waiting) return
+
+      f.apply(this, arguments)
+      waiting = true;
+
+
+
+  }
+}
+
+function debounce2(target, name, descriptor) {
+    let waiting = false;
+    const original = descriptor.value;
+    if (typeof original === 'function') {
+
+        descriptor.value = function(...args) {
+            console.log("Logged at: " + new Date().toLocaleString());
+            if (waiting) return
+
+            try {
+                const result = original.apply(this, args);
+                waiting = true
+                setTimeout( () => waiting = false, time)
+                return result;
+            } catch (e) {
+                console.log(`Error: ${e}`);
+                throw e;
+            }
+        }
+    }
+    return descriptor;
+}
+
+
+function readonly(target, property, descriptor) {
+    descriptor.writable = false;
+    return descriptor;
 }
