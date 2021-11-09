@@ -2,7 +2,7 @@ import { Directive, Input, OnInit } from "@angular/core";
 import {NgControl} from "@angular/forms";
 
 @Directive({
-    // tslint:disable-next-line:directive-selector
+    // eslint-disable-next-line @angular-eslint/directive-selector
   selector: "([formControlName], [formControl])[disabledControl]",
 })
 export class DisableControlDirective implements OnInit{

@@ -842,7 +842,7 @@ export class YellowMapsComponent implements OnInit {
                 '{ "type": "Feature", "properties": { "objekt": "1086-8" }, "geometry": { "type": "Point", "coordinates": [ 7.096606390000034, 50.730120133000071 ] } }\n' +
                 ']\n' +
                 '}'
-            // tslint:disable-next-line:prefer-const
+            // eslint-disable-next-line prefer-const
 
             const geoJsonLayer = ym.geoJson( JSON.parse(jsn) , {
                 onEachFeature(feature, layer) {

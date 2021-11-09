@@ -30,7 +30,7 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { FireServiceService } from "./services/fire-service/fire-service.service";
 
 
-// tslint:disable-next-line:typedef
+// eslint-disable-next-line
 export function momentAdapterFactory() {
     return adapterFactory(moment);
 }

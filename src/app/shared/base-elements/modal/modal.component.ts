@@ -7,7 +7,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class ModalComponent implements OnInit {
     @Input() title = 'Title';
-    // tslint:disable-next-line:no-output-native
+    // eslint-disable-next-line @angular-eslint/no-output-native
     @Output() close: EventEmitter<any> = new EventEmitter<any>();
 
     constructor() {
