@@ -36,7 +36,8 @@
               "node_modules/angular-calendar/css/angular-calendar.css",
               "src/styles.scss",
               {
-                "input": "./node_modules/bootstrap/dist/css/bootstrap.css"
+                "input": "./node_modules/bootstrap/dist/css/bootstrap.css",
+                "inject": true
               }
             ],
             "scripts": [],
@@ -58,7 +59,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
