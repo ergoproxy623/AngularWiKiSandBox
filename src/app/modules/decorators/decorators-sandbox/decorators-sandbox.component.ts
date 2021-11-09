@@ -84,7 +84,7 @@ function debounce2(target, name, descriptor) {
             try {
                 const result = original.apply(this, args);
                 waiting = true
-                setTimeout( () => waiting = false, time)
+                setTimeout( () => waiting = false, 0)
                 return result;
             } catch (e) {
                 console.log(`Error: ${e}`);
