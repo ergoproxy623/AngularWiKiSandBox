@@ -6,7 +6,7 @@ describe('AllChartsComponent', () => {
   let component: AllChartsComponent;
   let fixture: ComponentFixture<AllChartsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       declarations: [ AllChartsComponent ]
     })

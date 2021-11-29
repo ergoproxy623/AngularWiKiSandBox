@@ -6,7 +6,7 @@ describe('ArrowFuncComponent', () => {
   let component: ArrowFuncComponent;
   let fixture: ComponentFixture<ArrowFuncComponent>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       declarations: [ ArrowFuncComponent ]
     })

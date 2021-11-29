@@ -11,7 +11,18 @@ body { margin: 0;
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.test-find-class {
-    font-size: 1em;
+@mixin test {
+    text-align: left;
+    color: inherit;
+    font-size: 10em;
 }
 
+.test-find-class {
+    @include test
+}
+.test-exist-class {
+    color: red;
+    color: green;
+    height: 100vh;
+
+}
