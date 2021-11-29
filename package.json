@@ -8,7 +8,9 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -73,11 +75,13 @@
     "@angular/compiler-cli": "~13.0.0",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-typescript": "^7.16.0",
+    "@cypress/schematic": "^1.6.0",
     "@schematics/angular": "^13.0.1",
     "@types/jest": "^27.0.3",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.28.2",
     "@typescript-eslint/parser": "4.28.2",
+    "cypress": "^9.1.0",
     "eslint": "^7.26.0",
     "firebase-tools": "^8.0.0",
     "fuzzy": "^0.1.3",
