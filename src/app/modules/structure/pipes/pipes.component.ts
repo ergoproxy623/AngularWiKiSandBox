@@ -15,6 +15,7 @@ import { GetConfig, SetConfig } from "../../../store/actions/config.action";
 import { selectSelectedId } from "../../../store/selectors/router-state.selectors";
 import { ModalComponent } from "../../../shared/base-elements/modal/modal.component";
 import { ResolveDirective } from "../../../directive/resolve.directive";
+import { FaqReadControllerService } from "../../../api/services/faq-read-controller.service";
 
 @Component({
     selector: "app-pipes",
@@ -58,11 +59,17 @@ export class PipesComponent implements OnInit {
         private store: Store<IAppState>,
         private router: Router,
         private activeRoute: ActivatedRoute,
-        private resolver: ComponentFactoryResolver
+        private resolver: ComponentFactoryResolver,
+        private faqReadController: FaqReadControllerService
     ) {
     }
 
     ngOnInit(): void {
+        this.faqReadController.findAllFAQCategoriesUsingGETResponse(true)
+            .pipe()
+            .subscribe( r => {
+                console.log(r);
+            })
         this.store.dispatch(new GetUsers());
         this.store.dispatch(new GetConfig());
         setTimeout(() => {

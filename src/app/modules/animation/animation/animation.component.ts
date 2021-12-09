@@ -26,14 +26,11 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
         ])
     ]
 })
-export class AnimationComponent implements OnInit {
+export class AnimationComponent  {
     state = 'start';
     visible = true;
 
     constructor() {
-    }
-
-    ngOnInit(): void {
     }
 
     toggle(): void {

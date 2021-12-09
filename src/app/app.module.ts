@@ -28,6 +28,7 @@ import { MonacoEditorModule } from "ngx-monaco-editor";
 import { ModalComponent } from "./shared/base-elements/modal/modal.component";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { FireServiceService } from "./services/fire-service/fire-service.service";
+import { ApiModule } from "./api/api.module";
 
 
 // eslint-disable-next-line
@@ -72,6 +73,7 @@ export const routerStateConfig = {
         AngularFireDatabaseModule,
         AngularFirestoreModule,
         NgbModule,
+        ApiModule.forRoot({rootUrl: 'https://api.hjb-system.de/management'})
     ],
     providers: [INTERCEPTOR_PROVIDER, FireServiceService, ],
     bootstrap: [AppComponent],

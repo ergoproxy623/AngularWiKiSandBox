@@ -2,6 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SnippetsComponent } from './snippets.component';
 
+jest.mock('')
+
+
 describe('SnippetsComponent', () => {
   let component: SnippetsComponent;
   let fixture: ComponentFixture<SnippetsComponent>;
