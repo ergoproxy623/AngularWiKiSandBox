@@ -1,0 +1,9 @@
+<app-child-ref [template]="parentTemplate">
+    <h3 class="header">Header</h3>
+    <p class="body">Body</p>
+    <footer class="footer">Footer</footer>
+</app-child-ref>
+
+<ng-template #parentTemplate let-prefix>
+    <span> {{ prefix }} {{ 'parent template' }}  </span>
+</ng-template>

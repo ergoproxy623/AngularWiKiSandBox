@@ -10,6 +10,8 @@ import {StructureRoutingModule} from './structure-routing.module';
 import {SharedModule} from '../../shared/shared.module';
 import { StructureDirective } from './directives/structure.directive';
 import { MultiPipe } from './pipes/multi.pipe';
+import { NgRefTemplateComponent } from './ng-ref-template/ng-ref-template.component';
+import { ChildRefComponent } from './ng-ref-template/child-ref/child-ref.component';
 
 
 
@@ -24,6 +26,8 @@ import { MultiPipe } from './pipes/multi.pipe';
       DirectiveTestComponent,
       StructureDirective,
       MultiPipe,
+      NgRefTemplateComponent,
+      ChildRefComponent,
   ],
     imports: [
         CommonModule,

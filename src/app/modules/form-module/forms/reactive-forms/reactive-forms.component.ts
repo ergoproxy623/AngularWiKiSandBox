@@ -116,7 +116,7 @@ export class ReactiveFormsComponent implements OnInit {
         });
     }
 
-    setAddress() {
+    setAddressData() {
         this.createUserForm.patchValue({
             address: {
                 street: '123 str',

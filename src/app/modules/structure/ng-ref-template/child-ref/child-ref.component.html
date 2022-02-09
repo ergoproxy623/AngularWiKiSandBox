@@ -1,0 +1,37 @@
+<!--ng-content-->
+
+<ng-content select=".header"></ng-content>
+<p> {{ 'child work' }}</p>
+<ng-content></ng-content>
+<ng-content select=".footer"></ng-content>
+
+<!--ng-content -->
+
+<hr>
+
+<!--ng-container -->
+
+<ng-template #ref let-anyName let-foo="foo">
+    <p>I am template {{ foo }} {{ anyName }}</p>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="ref; context: {foo: 12, $implicit: 'Any Name'}"></ng-container>
+
+<ng-container *ngIf="true">
+    <div *ngFor="let i of [1, 2, 3]">
+        {{ i }}
+    </div>
+</ng-container>
+
+<!--ng-container -->
+
+<hr>
+
+<!--ng-template-->
+<ng-template #default let-anyName >
+    <p>I am default template {{ anyName }}</p>
+</ng-template>
+
+<div *ngFor="let i of [1, 2, 3]">
+    <ng-container *ngTemplateOutlet=" template || default; context: { $implicit:  i}"></ng-container>
+</div>

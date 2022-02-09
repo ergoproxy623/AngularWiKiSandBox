@@ -39,7 +39,8 @@ export class AppComponent {
                 { link: "/structure", title: "Structure" },
                 { link: "/structure/directives", title: "Directives" },
                 { link: "/structure/pipes", title: "Pipes" },
-                { link: "/structure/bunding", title: "Bunding" }
+                { link: "/structure/bunding", title: "Bunding" },
+                { link: "/structure/ng-ref", title: "NG-Ref" }
             ]
         },
         {
