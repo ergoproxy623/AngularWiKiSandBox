@@ -10,9 +10,9 @@ import { map as __map, filter as __filter } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-class AdminAbuseControllerService extends __BaseService {
-  static readonly updateAdvertisementStatusPath = '/abuses/status';
-  static readonly setAdvertisementErrorsPath = '/abuses/errors';
+class UserPublicControllerService extends __BaseService {
+  static readonly renewAdvertisementPath = '/public/posts/renew/{token}';
+  static readonly getUserAboutInfoPath = '/public/posts/aboutme/{advertisementId}';
 
   constructor(
     config: __Configuration,
@@ -20,13 +20,18 @@ class AdminAbuseControllerService extends __BaseService {
   ) {
     super(config, http);
   }
-  updateAdvertisementStatusResponse(): __Observable<__StrictHttpResponse<null>> {
+
+  /**
+   * @param token undefined
+   */
+  renewAdvertisementResponse(token: string): __Observable<__StrictHttpResponse<null>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
+
     let req = new HttpRequest<any>(
-      'PUT',
-      this.rootUrl + `/abuses/status`,
+      'GET',
+      this.rootUrl + `/public/posts/renew/${encodeURIComponent(String(token))}`,
       __body,
       {
         headers: __headers,
@@ -40,18 +45,27 @@ class AdminAbuseControllerService extends __BaseService {
         return _r as __StrictHttpResponse<null>;
       })
     );
-  }  updateAdvertisementStatus(): __Observable<null> {
-    return this.updateAdvertisementStatusResponse().pipe(
+  }
+  /**
+   * @param token undefined
+   */
+  renewAdvertisement(token: string): __Observable<null> {
+    return this.renewAdvertisementResponse(token).pipe(
       __map(_r => _r.body as null)
     );
   }
-  setAdvertisementErrorsResponse(): __Observable<__StrictHttpResponse<null>> {
+
+  /**
+   * @param advertisementId undefined
+   */
+  getUserAboutInfoResponse(advertisementId: number): __Observable<__StrictHttpResponse<null>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
+
     let req = new HttpRequest<any>(
-      'POST',
-      this.rootUrl + `/abuses/errors`,
+      'GET',
+      this.rootUrl + `/public/posts/aboutme/${encodeURIComponent(String(advertisementId))}`,
       __body,
       {
         headers: __headers,
@@ -65,14 +79,18 @@ class AdminAbuseControllerService extends __BaseService {
         return _r as __StrictHttpResponse<null>;
       })
     );
-  }  setAdvertisementErrors(): __Observable<null> {
-    return this.setAdvertisementErrorsResponse().pipe(
+  }
+  /**
+   * @param advertisementId undefined
+   */
+  getUserAboutInfo(advertisementId: number): __Observable<null> {
+    return this.getUserAboutInfoResponse(advertisementId).pipe(
       __map(_r => _r.body as null)
     );
   }
 }
 
-module AdminAbuseControllerService {
+module UserPublicControllerService {
 }
 
-export { AdminAbuseControllerService }
+export { UserPublicControllerService }

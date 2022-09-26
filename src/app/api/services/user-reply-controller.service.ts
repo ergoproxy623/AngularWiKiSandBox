@@ -10,9 +10,9 @@ import { map as __map, filter as __filter } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-class AdminAbuseControllerService extends __BaseService {
-  static readonly updateAdvertisementStatusPath = '/abuses/status';
-  static readonly setAdvertisementErrorsPath = '/abuses/errors';
+class UserReplyControllerService extends __BaseService {
+  static readonly getAnswersByQuestionIdsPath = '/answer';
+  static readonly makeAnswerPath = '/answer';
 
   constructor(
     config: __Configuration,
@@ -20,13 +20,18 @@ class AdminAbuseControllerService extends __BaseService {
   ) {
     super(config, http);
   }
-  updateAdvertisementStatusResponse(): __Observable<__StrictHttpResponse<null>> {
+
+  /**
+   * @param questionIds undefined
+   */
+  getAnswersByQuestionIdsResponse(questionIds: Array<number>): __Observable<__StrictHttpResponse<null>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
+    if (questionIds != null) __params = __params.set('questionIds', questionIds.toString());
     let req = new HttpRequest<any>(
-      'PUT',
-      this.rootUrl + `/abuses/status`,
+      'GET',
+      this.rootUrl + `/answer`,
       __body,
       {
         headers: __headers,
@@ -40,18 +45,22 @@ class AdminAbuseControllerService extends __BaseService {
         return _r as __StrictHttpResponse<null>;
       })
     );
-  }  updateAdvertisementStatus(): __Observable<null> {
-    return this.updateAdvertisementStatusResponse().pipe(
+  }
+  /**
+   * @param questionIds undefined
+   */
+  getAnswersByQuestionIds(questionIds: Array<number>): __Observable<null> {
+    return this.getAnswersByQuestionIdsResponse(questionIds).pipe(
       __map(_r => _r.body as null)
     );
   }
-  setAdvertisementErrorsResponse(): __Observable<__StrictHttpResponse<null>> {
+  makeAnswerResponse(): __Observable<__StrictHttpResponse<null>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
     let req = new HttpRequest<any>(
       'POST',
-      this.rootUrl + `/abuses/errors`,
+      this.rootUrl + `/answer`,
       __body,
       {
         headers: __headers,
@@ -65,14 +74,14 @@ class AdminAbuseControllerService extends __BaseService {
         return _r as __StrictHttpResponse<null>;
       })
     );
-  }  setAdvertisementErrors(): __Observable<null> {
-    return this.setAdvertisementErrorsResponse().pipe(
+  }  makeAnswer(): __Observable<null> {
+    return this.makeAnswerResponse().pipe(
       __map(_r => _r.body as null)
     );
   }
 }
 
-module AdminAbuseControllerService {
+module UserReplyControllerService {
 }
 
-export { AdminAbuseControllerService }
+export { UserReplyControllerService }

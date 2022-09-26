@@ -10,9 +10,10 @@ import { map as __map, filter as __filter } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-class AdminAbuseControllerService extends __BaseService {
-  static readonly updateAdvertisementStatusPath = '/abuses/status';
-  static readonly setAdvertisementErrorsPath = '/abuses/errors';
+class AdminManageControllerService extends __BaseService {
+  static readonly createAdminPath = '/administrators';
+  static readonly processUserLock1Path = '/administrators/lock/toggle';
+  static readonly deleteAdminPath = '/administrators/{adminId}';
 
   constructor(
     config: __Configuration,
@@ -20,38 +21,13 @@ class AdminAbuseControllerService extends __BaseService {
   ) {
     super(config, http);
   }
-  updateAdvertisementStatusResponse(): __Observable<__StrictHttpResponse<null>> {
-    let __params = this.newParams();
-    let __headers = new HttpHeaders();
-    let __body: any = null;
-    let req = new HttpRequest<any>(
-      'PUT',
-      this.rootUrl + `/abuses/status`,
-      __body,
-      {
-        headers: __headers,
-        params: __params,
-        responseType: 'json'
-      });
-
-    return this.http.request<any>(req).pipe(
-      __filter(_r => _r instanceof HttpResponse),
-      __map((_r) => {
-        return _r as __StrictHttpResponse<null>;
-      })
-    );
-  }  updateAdvertisementStatus(): __Observable<null> {
-    return this.updateAdvertisementStatusResponse().pipe(
-      __map(_r => _r.body as null)
-    );
-  }
-  setAdvertisementErrorsResponse(): __Observable<__StrictHttpResponse<null>> {
+  createAdminResponse(): __Observable<__StrictHttpResponse<null>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
     let req = new HttpRequest<any>(
       'POST',
-      this.rootUrl + `/abuses/errors`,
+      this.rootUrl + `/administrators`,
       __body,
       {
         headers: __headers,
@@ -65,14 +41,73 @@ class AdminAbuseControllerService extends __BaseService {
         return _r as __StrictHttpResponse<null>;
       })
     );
-  }  setAdvertisementErrors(): __Observable<null> {
-    return this.setAdvertisementErrorsResponse().pipe(
+  }  createAdmin(): __Observable<null> {
+    return this.createAdminResponse().pipe(
+      __map(_r => _r.body as null)
+    );
+  }
+  processUserLock1Response(): __Observable<__StrictHttpResponse<null>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    let req = new HttpRequest<any>(
+      'PUT',
+      this.rootUrl + `/administrators/lock/toggle`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<null>;
+      })
+    );
+  }  processUserLock1(): __Observable<null> {
+    return this.processUserLock1Response().pipe(
+      __map(_r => _r.body as null)
+    );
+  }
+
+  /**
+   * @param adminId undefined
+   */
+  deleteAdminResponse(adminId: number): __Observable<__StrictHttpResponse<null>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'DELETE',
+      this.rootUrl + `/administrators/${encodeURIComponent(String(adminId))}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<null>;
+      })
+    );
+  }
+  /**
+   * @param adminId undefined
+   */
+  deleteAdmin(adminId: number): __Observable<null> {
+    return this.deleteAdminResponse(adminId).pipe(
       __map(_r => _r.body as null)
     );
   }
 }
 
-module AdminAbuseControllerService {
+module AdminManageControllerService {
 }
 
-export { AdminAbuseControllerService }
+export { AdminManageControllerService }

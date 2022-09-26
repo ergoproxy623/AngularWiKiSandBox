@@ -10,9 +10,10 @@ import { map as __map, filter as __filter } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-class AdminAbuseControllerService extends __BaseService {
-  static readonly updateAdvertisementStatusPath = '/abuses/status';
-  static readonly setAdvertisementErrorsPath = '/abuses/errors';
+class UserImageControllerService extends __BaseService {
+  static readonly savePath = '/images';
+  static readonly deleteUserImagePath = '/images';
+  static readonly getUserImagePath = '/images/{fileName}';
 
   constructor(
     config: __Configuration,
@@ -20,38 +21,13 @@ class AdminAbuseControllerService extends __BaseService {
   ) {
     super(config, http);
   }
-  updateAdvertisementStatusResponse(): __Observable<__StrictHttpResponse<null>> {
-    let __params = this.newParams();
-    let __headers = new HttpHeaders();
-    let __body: any = null;
-    let req = new HttpRequest<any>(
-      'PUT',
-      this.rootUrl + `/abuses/status`,
-      __body,
-      {
-        headers: __headers,
-        params: __params,
-        responseType: 'json'
-      });
-
-    return this.http.request<any>(req).pipe(
-      __filter(_r => _r instanceof HttpResponse),
-      __map((_r) => {
-        return _r as __StrictHttpResponse<null>;
-      })
-    );
-  }  updateAdvertisementStatus(): __Observable<null> {
-    return this.updateAdvertisementStatusResponse().pipe(
-      __map(_r => _r.body as null)
-    );
-  }
-  setAdvertisementErrorsResponse(): __Observable<__StrictHttpResponse<null>> {
+  saveResponse(): __Observable<__StrictHttpResponse<null>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
     let req = new HttpRequest<any>(
       'POST',
-      this.rootUrl + `/abuses/errors`,
+      this.rootUrl + `/images`,
       __body,
       {
         headers: __headers,
@@ -65,14 +41,73 @@ class AdminAbuseControllerService extends __BaseService {
         return _r as __StrictHttpResponse<null>;
       })
     );
-  }  setAdvertisementErrors(): __Observable<null> {
-    return this.setAdvertisementErrorsResponse().pipe(
+  }  save(): __Observable<null> {
+    return this.saveResponse().pipe(
+      __map(_r => _r.body as null)
+    );
+  }
+  deleteUserImageResponse(): __Observable<__StrictHttpResponse<null>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    let req = new HttpRequest<any>(
+      'DELETE',
+      this.rootUrl + `/images`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<null>;
+      })
+    );
+  }  deleteUserImage(): __Observable<null> {
+    return this.deleteUserImageResponse().pipe(
+      __map(_r => _r.body as null)
+    );
+  }
+
+  /**
+   * @param fileName undefined
+   */
+  getUserImageResponse(fileName: string): __Observable<__StrictHttpResponse<null>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/images/${encodeURIComponent(String(fileName))}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<null>;
+      })
+    );
+  }
+  /**
+   * @param fileName undefined
+   */
+  getUserImage(fileName: string): __Observable<null> {
+    return this.getUserImageResponse(fileName).pipe(
       __map(_r => _r.body as null)
     );
   }
 }
 
-module AdminAbuseControllerService {
+module UserImageControllerService {
 }
 
-export { AdminAbuseControllerService }
+export { UserImageControllerService }

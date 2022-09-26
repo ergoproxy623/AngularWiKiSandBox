@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ApiConfiguration {
-  rootUrl: string = '//api.hjb-system.de/management';
+  rootUrl: string = '';
 }
 
 export interface ApiConfigurationInterface {
