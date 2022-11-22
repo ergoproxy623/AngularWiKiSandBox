@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import * as E from "linq";
+import  E from "linq";
 import { GitService } from "../../../services/git-api/git.service";
 import { select, Store } from "@ngrx/store";
 import { IAppState } from "../../../store/state/app.state";
@@ -22,7 +22,7 @@ export class LinqueSandboxComponent implements OnInit {
     constructor(
         private gitService: GitService,
         private store: Store<IAppState>
-    ) {}
+    ) { }
 
     ngOnInit(): void {
         console.log(1);
@@ -70,7 +70,7 @@ export class LinqueSandboxComponent implements OnInit {
 
     ramdaDrop() {
         console.log(this.testArr);
-        
+
         console.log(R.drop(1, this.testArr))
     }
 
