@@ -12,9 +12,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { adapterFactory } from "angular-calendar/date-adapters/moment";
 import * as moment from "moment";
 import { FlatpickrModule } from "angularx-flatpickr";
-import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
-import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AuthInterceptor } from "./interceptors/auth.interceptor";
 import { StoreModule } from "@ngrx/store";
@@ -26,10 +24,8 @@ import { ConfigEffects } from "./store/effects/config.effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { MonacoEditorModule } from "ngx-monaco-editor";
 import { ModalComponent } from "./shared/base-elements/modal/modal.component";
-import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { FireServiceService } from "./services/fire-service/fire-service.service";
 import { ApiModule } from "./api/api.module";
-
 
 // eslint-disable-next-line
 export function momentAdapterFactory() {
@@ -47,10 +43,7 @@ export const routerStateConfig = {
 };
 
 @NgModule({
-    declarations: [
-        AppComponent,
-
-    ],
+    declarations: [AppComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -69,15 +62,11 @@ export const routerStateConfig = {
         HttpClientModule,
         FlatpickrModule.forRoot(),
         MonacoEditorModule.forRoot(),
-        AngularFireModule.initializeApp(environment.firebase),
-        AngularFireDatabaseModule,
-        AngularFirestoreModule,
         NgbModule,
-        ApiModule.forRoot({rootUrl: 'https://api.hjb-system.de/management'})
+        ApiModule.forRoot({ rootUrl: "https://api.hjb-system.de/management" }),
     ],
-    providers: [INTERCEPTOR_PROVIDER, FireServiceService, ],
+    providers: [INTERCEPTOR_PROVIDER, FireServiceService],
     bootstrap: [AppComponent],
     entryComponents: [ModalComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

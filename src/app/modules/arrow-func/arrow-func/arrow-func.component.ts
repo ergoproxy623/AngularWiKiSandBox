@@ -12,13 +12,17 @@ export class ArrowFuncComponent implements OnInit {
     constructor() {
     }
 
-    ngOnInit(): void {
+    ngOnInit(): void { 
+        this.animals.every(a => a.includes('zzz'))
         this.forEachShow();
         this.curryingShow();
     }
 
 
     forEachShow(): void {
+        this.animals.forEach( (a) => {
+            a.includes('anal');
+        })
        this.animals.forEach( a => {
            console.log(a);
        });

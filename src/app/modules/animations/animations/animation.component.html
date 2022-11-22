@@ -1,0 +1,13 @@
+<button class="btn" (click)="toggleMode()">End</button>
+<button class="btn justify-c" (click)="toggleMiddle()">Middle</button>
+<button class="btn d-flex" (click)="visible = !visible">Hide /Show</button>
+<div [hidden]="!visible" class="box w-25" *ngIf="visible" [@box]="state">
+    {{ visible | json }}
+</div>
+<pre>{{ visible | json }}</pre>
+<div class="mouse-in-box"></div>
+<a href="#"></a>
+<ng-container>
+    <button type=""></button>
+</ng-container>
+<ng-template> </ng-template>
