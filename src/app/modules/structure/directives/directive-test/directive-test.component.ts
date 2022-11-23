@@ -14,6 +14,12 @@ export class DirectiveTestComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getUsers();
+    this.getUsers();
+    this.getUsers();
+  }
+
+  getUsers(): void {
       const first$ = this.gitService.searchUsers('ergo').pipe(
           withLatestFrom(this.gitService.searchUsers("ergoproxy")),
           first()
@@ -23,5 +29,4 @@ export class DirectiveTestComponent implements OnInit {
           console.log(s);
       });
   }
-
 }

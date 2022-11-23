@@ -10,16 +10,12 @@ import {GitService} from 'src/app/services/git-api/git.service';
 export class CardItemComponent implements OnInit {
     @Input() public card: ICard;
 
-    constructor(private userService: GitService) {
+    constructor() {
     }
 
  public ngOnInit(): void {
         console.log(this.card);
-        console.log(this.userService.url);
-        console.log(this.userService.url);
-        console.log(this.userService.url);
 
-        console.log(this.userService.url);
         this.getResult();
     }
 

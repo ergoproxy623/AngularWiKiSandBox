@@ -12,6 +12,7 @@ import { StructureDirective } from './directives/structure.directive';
 import { MultiPipe } from './pipes/multi.pipe';
 import { NgRefTemplateComponent } from './ng-ref-template/ng-ref-template.component';
 import { ChildRefComponent } from './ng-ref-template/child-ref/child-ref.component';
+import { FormsModule } from "@angular/forms";
 
 
 
@@ -33,6 +34,7 @@ import { ChildRefComponent } from './ng-ref-template/child-ref/child-ref.compone
         CommonModule,
         StructureRoutingModule,
         SharedModule,
+        FormsModule
     ]
 })
 export class StructureModule { }

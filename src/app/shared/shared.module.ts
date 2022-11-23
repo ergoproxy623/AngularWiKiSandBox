@@ -7,6 +7,7 @@ import {ResolveDirective} from "../directive/resolve.directive";
 import {DisableControlDirective} from "../directive/disable-control.directive";
 import {TimeoutDirective} from "../directive/timeout.directive";
 import { BoldDirective } from "../directive/bold.directive";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 const Components = [
     CardItemComponent,
@@ -24,6 +25,8 @@ const Components = [
     ],
     imports: [
         CommonModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     exports: [
         ...Components

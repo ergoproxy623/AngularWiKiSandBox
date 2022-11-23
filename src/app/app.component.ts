@@ -132,6 +132,12 @@ export class AppComponent implements OnInit {
         { link: "/linq", title: "Linq" }
       ]
     },
+      {
+          title: "Html sandbox",
+          linkArr: [
+              { link: "/html-sandbox", title: "Sandbox" }
+          ]
+      },
     { link: "/sheduler", title: "Sheduler", linkArr: [] }
   ];
 

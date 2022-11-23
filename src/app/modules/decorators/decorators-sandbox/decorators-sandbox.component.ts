@@ -1,30 +1,54 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
+const memoizeFn = require('lodash.memoize');
+
 
 @Component({
     selector: "app-decorators-sandbox",
-    templateUrl: "./decorators-sandbox.component.html",
+    template: `<div #testView class="mise" >{{ test + test }}</div>`,
     styleUrls: ["./decorators-sandbox.component.scss"]
 })
 export class DecoratorsSandboxComponent implements OnInit {
+    @ViewChild('testView') testView: TemplateRef<any> 
+    test = 'zzz'
 
     constructor() {
     }
 
     ngOnInit(): void {
+        setTimeout( () => {
+            console.clear();
+            console.time('memo')
+            this.testMemo(1,2);
+            console.timeEnd('memo')
+            console.time('memo2')
+            this.testMemo(2,3);
+            console.timeEnd('memo2')
+            console.time('memo3')
+            this.testMemo(1,2);
+            console.timeEnd('memo3')
+            console.time('memo4')
+            this.testMemo(2,3);
+            console.timeEnd('memo4')
+            console.time('memo5')
+            this.testMemo(1,2);
+            console.timeEnd('memo5')
+        }, 10000)
+
+
         const slowAndCaching = this.cachingDecorator(this.slow);
-        console.log(slowAndCaching({x: 5, y: 5}));
-        console.log(slowAndCaching({x: 5, y: 5}));
-        console.log(slowAndCaching({x: 5, y: 5}));
-        console.log(slowAndCaching({x: 5, y: 5}));
-        console.log(slowAndCaching({x: 6, y: 6}));
-        console.log(slowAndCaching({x: 5, y: 5}));
-        console.log(slowAndCaching({x: 5, y: 5}));
-        console.log(slowAndCaching({x: 5, y: 5}));
-        console.log(slowAndCaching({x: 6, y: 6}));
+        console.log(slowAndCaching({ x: 5, y: 5 }));
+        console.log(slowAndCaching({ x: 5, y: 5 }));
+        console.log(slowAndCaching({ x: 5, y: 5 }));
+        console.log(slowAndCaching({ x: 5, y: 5 }));
+        console.log(slowAndCaching({ x: 6, y: 6 }));
+        console.log(slowAndCaching({ x: 5, y: 5 }));
+        console.log(slowAndCaching({ x: 5, y: 5 }));
+        console.log(slowAndCaching({ x: 5, y: 7 }));
+        console.log(slowAndCaching({ x: 6, y: 6 }));
     }
     @readonly
     @debounce2
-    slow(countObj: {x: number, y: number}) {
+    slow(countObj: { x: number, y: number }) {
         // здесь могут быть ресурсоёмкие вычисления
         console.log(countObj.x + countObj.y);
         return countObj.x + countObj.y;
@@ -33,6 +57,12 @@ export class DecoratorsSandboxComponent implements OnInit {
 
     testFunc(): Test<number, boolean> {
         return { value: 1, test: true }
+    }
+
+    @memo()
+    testMemo(a, b): number {
+       return a + b;
+
     }
 
     cachingDecorator(func) {
@@ -59,17 +89,17 @@ export class DecoratorsSandboxComponent implements OnInit {
 }
 
 function debounce(f, time: number) {
-  let waiting = false;
+    let waiting = false;
 
-  return () => {
-      if (waiting) return
+    return () => {
+        if (waiting) return
 
-      f.apply(this, arguments)
-      waiting = true;
+        f.apply(this, arguments)
+        waiting = true;
 
 
 
-  }
+    }
 }
 
 function debounce2(target, name, descriptor) {
@@ -84,7 +114,7 @@ function debounce2(target, name, descriptor) {
             try {
                 const result = original.apply(this, args);
                 waiting = true
-                setTimeout( () => waiting = false, 0)
+                setTimeout(() => waiting = false, 0)
                 return result;
             } catch (e) {
                 console.log(`Error: ${e}`);
@@ -104,4 +134,11 @@ function readonly(target, property, descriptor) {
 export interface Test<T, U> {
     value: T,
     test: U
+}
+
+export function memo(resolver?): any {
+  return function(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    descriptor.value = memoizeFn(descriptor.value, resolver);
+    return descriptor;
+  };
 }

@@ -1,0 +1,150 @@
+$primary-light: #ebe9e9;
+$primary-dark: #181818;
+$primary-gray: #c6c6c6;
+$light-background: $primary-light;
+$dark-background: $primary-dark;
+$light-block-margin: 100px;
+
+button {
+    all: unset;
+}
+
+.main-container {
+    background-color: $light-background;
+    width: 100vw;
+    height: auto;
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px $light-block-margin;
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+
+            &__item {
+                padding: 10px 20px;
+                cursor: pointer;
+                text-transform: capitalize;
+            }
+        }
+
+        .contact {
+            button {
+                border: 1px solid $primary-dark;
+                border-radius: 4px;
+                color: $primary-dark;
+                padding: 5px 20px;
+                cursor: pointer;
+                text-transform: capitalize;
+                font-weight: bold;
+            }
+        }
+
+    }
+
+    .home {
+        display: flex;
+        justify-content: space-between;
+        padding: 80px $light-block-margin;
+
+        &__about {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            color: $primary-dark;
+            padding: 0 40px;
+
+            &__title {
+                color: $primary-dark;
+                font-size: 42px;
+            };
+            &__paragraph {
+                color: $primary-dark;
+                font-size: 10px;
+            }
+            &__button {
+                background-color: $primary-dark;
+                color: $primary-light;
+                width: fit-content;
+                padding: 5px 15px;
+                border-radius: 4px;
+            }
+        }
+
+        &__media-content {
+
+        }
+    }
+
+    .blog {
+        background-color: $primary-dark;
+        padding: 55px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__blog-title {
+            color: $primary-light;
+            font-size: 45px;
+        }
+        &__paragraph {
+            color: $primary-light;
+            font-size: 10px;
+        }
+        &__button {
+            color: $primary-light;
+            text-transform: capitalize;
+            border: 1px solid $primary-light;
+            border-radius: 4px;
+            padding: 5px 15px;
+        }
+    }
+
+    .places {
+        padding: 80px $light-block-margin;
+        display: flex;
+        justify-content: space-between;
+
+        &__card {
+            max-width: 360px;
+
+            &__image {
+
+            }
+            &__divider {
+                width: 40px;
+                height: 2px;
+                background-color: $primary-dark;
+                margin: 20px 0;
+            }
+            &__title {
+                color: $primary-dark;
+            }
+        }
+    }
+
+    .tip {
+        padding: 80px $light-block-margin;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 780px;
+        &__image {
+            margin-bottom: 30px;
+        }
+        &__title {
+            color: $primary-dark;
+            font-size: 65px;
+            margin-bottom: 40px;
+        }
+        &__paragraph {
+            font-size: 20px;
+        }
+    }
+}

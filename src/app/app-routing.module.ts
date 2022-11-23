@@ -159,6 +159,11 @@ const routes: Routes = [
         loadChildren: () =>
             import("./modules/solid/solid.module").then((m) => m.SolidModule),
     },
+    {
+        path: "html-sandbox",
+        loadChildren: () =>
+            import("./modules/html-sandbox/html-sandbox.module").then((m) => m.HtmlSandboxModule),
+    },
 ];
 
 @NgModule({
