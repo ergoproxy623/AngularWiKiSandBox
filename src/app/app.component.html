@@ -1,14 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand test-for-exist" href="#">Angular Wiki</a>
-    <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarsExampleDefault"
-        aria-controls="navbarsExampleDefault"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-    >
+    <a class="navbar-brand" href="#">Angular Wiki</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -16,19 +9,11 @@
         <ul class="navbar-nav mr-auto d-flex flex-wrap">
             <li class="nav-item mr-1 mb-2" *ngFor="let link of linkArr">
                 <div ngbDropdown>
-                    <button
-                        class="btn btn-outline-primary"
-                        id="dropdownBasic1"
-                        ngbDropdownToggle
-                    >
+                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
                         {{ link.title }} Menu
                     </button>
                     <div ngbDropdownMenu>
-                        <button
-                            ngbDropdownItem
-                            *ngFor="let l of link.linkArr"
-                            [routerLink]="l.link"
-                        >
+                        <button ngbDropdownItem *ngFor="let l of link.linkArr" [routerLink]="l.link">
                             {{ l.title }}
                         </button>
                     </div>
