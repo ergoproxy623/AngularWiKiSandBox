@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
-const memoizeFn = require('lodash.memoize');
+import * as memoizeFn from "lodash.memoize"
 
 
 @Component({
@@ -17,18 +17,23 @@ export class DecoratorsSandboxComponent implements OnInit {
     ngOnInit(): void {
         setTimeout( () => {
             console.clear();
+
             console.time('memo')
             this.testMemo(1,2);
             console.timeEnd('memo')
+
             console.time('memo2')
             this.testMemo(2,3);
             console.timeEnd('memo2')
+
             console.time('memo3')
             this.testMemo(1,2);
             console.timeEnd('memo3')
+
             console.time('memo4')
             this.testMemo(2,3);
             console.timeEnd('memo4')
+
             console.time('memo5')
             this.testMemo(1,2);
             console.timeEnd('memo5')
@@ -62,7 +67,6 @@ export class DecoratorsSandboxComponent implements OnInit {
     @memo()
     testMemo(a, b): number {
        return a + b;
-
     }
 
     cachingDecorator(func) {

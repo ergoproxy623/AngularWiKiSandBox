@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Actions, Effect, ofType} from '@ngrx/effects';
+import { Actions, createEffect, ofType } from "@ngrx/effects";
 import {TestRequestService} from '../../services/test-request.service';
 import {Store} from '@ngrx/store';
 import {EConfigState, GetConfig, GetConfigSuccess, SetConfig, SetConfigSuccess} from '../actions/config.action';
@@ -19,20 +19,19 @@ export class ConfigEffects {
     ) {
     }
 
-    @Effect()
-    getConfig$ = this.actions$.pipe(
+
+    getConfig$ = createEffect(() =>  this.actions$.pipe(
         ofType<GetConfig>(EConfigState.GetConfig),
         switchMap( () => this.configService.getConfig() ),
         switchMap( (config: IConfig) => {
             return of (new GetConfigSuccess(config) );
         } )
-    );
+    ));
 
-    @Effect()
-    setConfig = this.actions$.pipe(
+    setConfig = createEffect(() =>  this.actions$.pipe(
         ofType<SetConfig>(EConfigState.SetConfig),
         map( action => action.payload ),
         switchMap( (config) => of( new SetConfigSuccess(config)) )
-        );
+        ));
 
 }
