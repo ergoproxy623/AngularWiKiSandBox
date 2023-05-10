@@ -27,14 +27,14 @@ describe('PipesComponent', () => {
     let fixture: ComponentFixture<PipesComponent>;
     let service: TestRequestService;
     let store: MockStore;
-    let spy: jasmine.Spy;
+    let spy: jest.SpyInstance;
     let de: DebugElement;
 
     const FirestoreStub = {
         collection: (name: string) => ({
             items: (_id: string) => ({
                 valueChanges: () => new BehaviorSubject({ foo: 'bar' }),
-                set: (_d: any) => new Promise((resolve, _reject) => resolve()),
+                set: (_d: any) => new Promise((resolve, _reject) => resolve(null)),
             }),
         }),
     };
@@ -61,7 +61,7 @@ describe('PipesComponent', () => {
         de = fixture.debugElement;
         component = fixture.componentInstance;
         service = de.injector.get(TestRequestService);
-        spy = spyOn(service, 'getUsers').and.returnValue(of({count: 1, data: [{id: 1, name: 'Sem'}]}));
+        spy = jest.spyOn(service, 'getUsers').mockReturnValue(of({count: 1, data: [{id: 1, name: 'Sem'}]}));
 
         fixture.detectChanges();
     });
@@ -78,7 +78,7 @@ describe('PipesComponent', () => {
     });
 
     it('should not empty tests arr', () => {
-        expect(component.tests.length).toBeTruthy(5);
+        expect(component.tests.length).toBeTruthy();
     });
 
     it('should users arr get done', fakeAsync(() => {
@@ -95,7 +95,7 @@ describe('PipesComponent', () => {
 
     it('should  call one time and update view',  () => {
         expect(spy).toHaveBeenCalled();
-        expect(spy.calls.all().length).toBeGreaterThanOrEqual(1);
+        expect(spy.mock.calls.length).toBeGreaterThanOrEqual(1);
         // expect(de.query(By.css))
     });
 });

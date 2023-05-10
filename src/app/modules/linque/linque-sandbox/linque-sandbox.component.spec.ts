@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 
 import {LinqueSandboxComponent} from './linque-sandbox.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
@@ -9,7 +9,7 @@ describe('LinqueSandboxComponent', () => {
     let component: LinqueSandboxComponent;
     let fixture: ComponentFixture<LinqueSandboxComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             imports: [HttpClientTestingModule, ...TestBadImportConfig(), RouterTestingModule],
             declarations: [LinqueSandboxComponent]
