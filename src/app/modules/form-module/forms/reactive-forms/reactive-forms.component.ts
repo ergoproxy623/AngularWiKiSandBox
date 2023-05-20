@@ -54,13 +54,13 @@ export class ReactiveFormsComponent implements OnInit {
     }
 
    changeFormState() {
-        // switch (true) {
-        //     case this.createUserForm?.value?.name?.length > 0:
-        //         this.disableAll();
-        //         break;
-        //     default:
-        //         this.enableAll();
-        // }
+        switch (true) {
+            case this.createUserForm?.value?.name?.length > 0:
+                this.disableAll();
+                break;
+            default:
+                this.enableAll();
+        }
    }
 
     createUser(): void {
