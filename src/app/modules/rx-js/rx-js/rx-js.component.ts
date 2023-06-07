@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {EMPTY, from, fromEvent, interval, Observable, Subscription} from 'rxjs';
+import {EMPTY, from, fromEvent, interval, Observable, Subscription, throwError} from 'rxjs';
 import {of} from 'rxjs/internal/observable/of';
 import {
     catchError,
@@ -11,7 +11,8 @@ import {
     map, mergeMap,
     startWith,
     switchMap,
-    tap
+    tap,
+    timeout
 } from 'rxjs/operators'
 import {GitService} from "../../../services/git-api/git.service";
 
@@ -53,6 +54,8 @@ export class RxJsComponent implements OnInit, OnDestroy, AfterViewInit {
                 )
             )),
             map( r => r.items ),
+            timeout(20000),
+            catchError( (err) => throwError(err))
         );
 
         this.gitSearch$.subscribe( r =>  {
