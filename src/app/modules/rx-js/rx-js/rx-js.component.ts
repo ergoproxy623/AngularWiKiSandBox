@@ -50,7 +50,7 @@ export class RxJsComponent implements OnInit, OnDestroy, AfterViewInit {
             filter( v => v.trim() ),
             switchMap(v =>  from(this.gitService.searchUsers(v)
                 .pipe(
-                catchError( err => EMPTY),
+                catchError( () => EMPTY),
                 )
             )),
             map( r => r.items ),

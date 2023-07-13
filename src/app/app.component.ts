@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
-  title = "project-for-tests";
+  title: string = "project-for-tests";
   linkArr: any[] = [
     {
       title: "Form",
