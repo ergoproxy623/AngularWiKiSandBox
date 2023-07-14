@@ -1,5 +1,0 @@
-repos:
--   repo: local
-    rev: d574d4f4
-    hooks:
-    -   id: ngbuild
