@@ -141,7 +141,5 @@ export class AppComponent implements OnInit {
     { link: "/sheduler", title: "Sheduler", linkArr: [] }
   ];
 
-  ngOnInit(): void {
-    console.log(this.linkArr);
-  }
+  ngOnInit(): void {}
 }
