@@ -25,6 +25,7 @@ export class ArrowFuncComponent implements OnInit {
         })
        this.animals.forEach( a => {
            console.log(a);
+            console.table([1, 2 ,3 ])
        });
     }
 
@@ -36,5 +37,7 @@ export class ArrowFuncComponent implements OnInit {
 
         const result = multiply(2)(4);
         console.log(result);
-    }
+     }
+
+
 }

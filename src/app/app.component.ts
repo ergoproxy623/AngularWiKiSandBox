@@ -143,5 +143,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
       console.log(1);
+      this.title.slice(1, 2)
   }
 }

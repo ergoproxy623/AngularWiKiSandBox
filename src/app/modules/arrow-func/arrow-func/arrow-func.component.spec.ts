@@ -22,4 +22,9 @@ describe('ArrowFuncComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should mark each', () => {
+    component.forEachShow();
+
+  })
 });

@@ -16,13 +16,13 @@ import {map, mergeMap, switchMap, withLatestFrom} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {select} from '@ngrx/store';
 import { selectUserList} from '../selectors/user.selectors';
-import {GitService} from "../../services/git-api/git.service";
+import {GitApiService} from "../../services/git-api/git.service";
 
 @Injectable()
 export class UserEffects {
     constructor(
         private userService: TestRequestService,
-        private gitService: GitService,
+        private gitService: GitApiService,
         private actions$: Actions,
         private store: Store<IAppState>
     ) {

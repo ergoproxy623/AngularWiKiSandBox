@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DirectiveTestComponent } from './directive-test.component';
-import { GitService } from "../../../../services/git-api/git.service";
+import { GitApiService } from "../../../../services/git-api/git.service";
 import { Observable, of } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
@@ -14,7 +14,7 @@ describe('DirectiveTestComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DirectiveTestComponent ],
-        providers: [GitService, HttpClient, ]
+        providers: [GitApiService, HttpClient, ]
     })
     .compileComponents();
   }));
@@ -22,7 +22,7 @@ describe('DirectiveTestComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DirectiveTestComponent);
     component = fixture.componentInstance;
-    service = fixture.debugElement.injector.get(GitService)
+    service = fixture.debugElement.injector.get(GitApiService)
     gitSpy = spyOn(service, 'searchUsers').and.returnValue(of([]))
     fixture.detectChanges();
   });

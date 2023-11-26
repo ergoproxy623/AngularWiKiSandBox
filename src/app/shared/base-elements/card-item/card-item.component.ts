@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ICard} from '../../../interfaces/card-interface/card';
-import {GitService} from 'src/app/services/git-api/git.service';
+import {GitApiService} from 'src/app/services/git-api/git.service';
 
 @Component({
     selector: 'app-card-item',
@@ -10,7 +10,7 @@ import {GitService} from 'src/app/services/git-api/git.service';
 export class CardItemComponent implements OnInit {
     @Input() public card: ICard;
 
-    constructor() {
+    constructor(private readonly gitApi: GitApiService) {
     }
 
  public ngOnInit(): void {

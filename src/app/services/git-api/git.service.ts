@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 @Injectable({
     providedIn: "root"
 })
-export class GitService {
+export class GitApiService {
     private url = "https://api.github.com/search/users";
 
     constructor(private http: HttpClient) {

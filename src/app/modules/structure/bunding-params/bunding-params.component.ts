@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ICard} from '../../../interfaces/card-interface/card';
 import {Router, ActivatedRoute} from '@angular/router';
-import {GitService} from "../../../services/git-api/git.service";
+import {GitApiService} from "../../../services/git-api/git.service";
 import {first, withLatestFrom} from "rxjs/operators";
 
 @Component({
@@ -14,7 +14,7 @@ export class BundingParamsComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private gitService: GitService
+        private gitService: GitApiService
     ) {
     }
 

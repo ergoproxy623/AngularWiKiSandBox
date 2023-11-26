@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {GitService} from "../../../../services/git-api/git.service";
+import {GitApiService} from "../../../../services/git-api/git.service";
 import {first, withLatestFrom} from "rxjs/operators";
 
 @Component({
@@ -10,7 +10,7 @@ import {first, withLatestFrom} from "rxjs/operators";
 export class DirectiveTestComponent implements OnInit {
 
   constructor(
-      private gitService: GitService,
+      private gitService: GitApiService,
   ) { }
 
   ngOnInit(): void {

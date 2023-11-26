@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GitService } from './git.service';
+import { GitApiService } from './git.service';
 import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
 const url = "https://api.github.com/search/users";
 describe('GitService', () => {
-  let service: GitService;
+  let service: GitApiService;
   let controller: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
         imports: [HttpClientTestingModule],
     });
-    service = TestBed.inject(GitService);
+    service = TestBed.inject(GitApiService);
     controller =TestBed.inject(HttpTestingController)
   });
 

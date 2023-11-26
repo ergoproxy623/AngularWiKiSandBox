@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import  E from "linq";
-import { GitService } from "../../../services/git-api/git.service";
+import { GitApiService } from "../../../services/git-api/git.service";
 import { select, Store } from "@ngrx/store";
 import { IAppState } from "../../../store/state/app.state";
 import { selectUserGitList } from "../../../store/selectors/user.selectors";
@@ -20,7 +20,7 @@ export class LinqueSandboxComponent implements OnInit {
     );
 
     constructor(
-        private gitService: GitService,
+        private gitService: GitApiService,
         private store: Store<IAppState>
     ) { }
 

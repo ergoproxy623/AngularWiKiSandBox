@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { GitService } from "../../../services/git-api/git.service";
+import { GitApiService } from "../../../services/git-api/git.service";
 
 @Component({
     selector: "app-async-await",
@@ -9,7 +9,7 @@ import { GitService } from "../../../services/git-api/git.service";
 export class AsyncAwaitComponent implements OnInit {
 
     constructor(
-        private getService: GitService
+        private getService: GitApiService
     ) {
     }
 

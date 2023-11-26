@@ -14,7 +14,7 @@ import {
     tap,
     timeout
 } from 'rxjs/operators'
-import {GitService} from "../../../services/git-api/git.service";
+import {GitApiService} from "../../../services/git-api/git.service";
 
 @Component({
     selector: 'app-rx-js',
@@ -28,7 +28,7 @@ export class RxJsComponent implements OnInit, OnDestroy, AfterViewInit {
 
     @ViewChild('search') search: ElementRef;
 
-    constructor(private gitService: GitService
+    constructor(private gitService: GitApiService
     ) {
     }
 

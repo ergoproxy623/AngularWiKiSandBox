@@ -50,5 +50,8 @@ export class AnimationComponent {
 
     toggleMiddle(): void {
         this.state = "middle";
+
+
+
     }
 }
